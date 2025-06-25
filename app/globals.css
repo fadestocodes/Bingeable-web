@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  font-family: var(--font-geist-sans);
 }
 
 @theme inline {
@@ -22,5 +23,20 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Geist, Arial, Helvetica, sans-serif;
+}
+
+@theme{
+  --color-primary: #171717,
+  --color-primaryLight : #1f2223,
+  --color-primaryDark : #0e1010,
+  --color-secondary: #ffe600, 
+  --color-secondary200 : #f19a0e,
+  --color-third : #FEFAE0,
+  --color-lightBlack : #414549,
+  --color-mainGray : #9ca3af,
+  --color-mainGrayLight:#e5e7eb,
+  --color-mainGrayDark:#525252,
+  --color-darkGray : #232533,
+  --color-lightGray : #CDCDE0
 }
