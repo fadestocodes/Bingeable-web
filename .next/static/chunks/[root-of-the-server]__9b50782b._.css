@@ -153,6 +153,7 @@
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
       --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
@@ -169,7 +170,11 @@
 
 @layer theme {
   :root, :host {
+    --color-green-50: oklch(98.2% .018 155.826);
+    --color-green-200: oklch(92.5% .084 155.995);
+    --color-green-400: oklch(79.2% .209 151.711);
     --color-blue-50: oklch(97% .014 254.604);
+    --color-pink-50: oklch(97.1% .014 343.198);
     --color-white: #fff;
     --spacing: .25rem;
     --text-xs: .75rem;
@@ -395,6 +400,10 @@
     bottom: calc(var(--spacing) * 0);
   }
 
+  .bottom-4 {
+    bottom: calc(var(--spacing) * 4);
+  }
+
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -439,6 +448,10 @@
     height: 450px;
   }
 
+  .h-\[500px\] {
+    height: 500px;
+  }
+
   .h-\[1000px\] {
     height: 1000px;
   }
@@ -453,6 +466,10 @@
 
   .w-\[200px\] {
     width: 200px;
+  }
+
+  .w-\[400px\] {
+    width: 400px;
   }
 
   .w-full {
@@ -483,12 +500,28 @@
     align-items: center;
   }
 
+  .items-start {
+    align-items: flex-start;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
   .justify-center {
     justify-content: center;
   }
 
+  .justify-start {
+    justify-content: flex-start;
+  }
+
   .justify-items-center {
     justify-items: center;
+  }
+
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
   }
 
   .gap-2 {
@@ -497,6 +530,10 @@
 
   .gap-3 {
     gap: calc(var(--spacing) * 3);
+  }
+
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
 
   .gap-5 {
@@ -531,6 +568,32 @@
 
   .rounded-\[15px\] {
     border-radius: 15px;
+  }
+
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+
+  .border-green-50 {
+    border-color: var(--color-green-50);
+  }
+
+  .border-green-200 {
+    border-color: var(--color-green-200);
+  }
+
+  .border-green-400 {
+    border-color: var(--color-green-400);
+  }
+
+  .border-pink-50 {
+    border-color: var(--color-pink-50);
   }
 
   .bg-\[\#171717\] {
@@ -596,6 +659,10 @@
     padding-inline: calc(var(--spacing) * 20);
   }
 
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
   }
@@ -608,8 +675,16 @@
     padding-top: calc(var(--spacing) * 6);
   }
 
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
+  }
+
   .pt-26 {
     padding-top: calc(var(--spacing) * 26);
+  }
+
+  .pb-8 {
+    padding-bottom: calc(var(--spacing) * 8);
   }
 
   .pb-10 {
@@ -729,6 +804,12 @@ body {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 
 @property --tw-gradient-position {

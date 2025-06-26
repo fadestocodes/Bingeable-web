@@ -1,3 +1,5 @@
+'use client'
+
 import { User } from '@/app/types'
 import React from 'react'
 import Image from 'next/image'
@@ -49,7 +51,7 @@ const UserCarousel = ({ usersList } : User[]) => {
                                 </div>
                                 <div className='gap-3 flex flex-col justify-center items-center pt-4 '>
 
-                                    <text className='z-20 text-xs font-bold' style={{color:colors.mainGray}}>Current Rotation</text>
+                                    <p className='z-20 text-xs font-bold' style={{color:colors.mainGray}}>Current Rotation</p>
                                     <div className=' gap-2 flex flex-row  justify-center items-center'>
                                         { user.currentRotation.map( rotation => {
                                             console.log('ROTATION',rotation)

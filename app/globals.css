@@ -49,3 +49,16 @@ body {
     transform: translateX(-50%);
   }
 }
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.courier {
+  font-family: var(--font-courier-prime);
+}

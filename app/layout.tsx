@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 const courierPrime = Courier_Prime({
-  variable: "--font-courier",
   weight: ['400', '700'],
   subsets: ["latin"],
+  variable: "--font-courier-prime",
 });
 
 export const metadata: Metadata = {
@@ -32,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${courierPrime.variable} antialiased`}
+        style={{ fontFamily: "var(--font-geist-sans)" }}
       >
         {children}
       </body>

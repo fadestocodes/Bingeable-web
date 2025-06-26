@@ -5,3 +5,12 @@ export type User = {
     email : string,
     username : string
 }
+
+export type Dialogue = {
+    id : number,
+    userId : number,
+    content : string,
+    upvotes : number,
+    downvotes : number,
+    reposts : number,
+}
