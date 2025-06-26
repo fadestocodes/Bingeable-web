@@ -147,16 +147,109 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__
 ;
 const UserCarousel = ({ usersList })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex-row flex gap-10   ",
+        className: "flex-row flex gap-8 w-full overflow-hidden ",
         children: usersList.map((user)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
-                    background: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["colors"].mainGrayDark
+                    width: '100%',
+                    borderRadius: 15
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                    src: user.profilePic,
-                    height: 600,
-                    width: 600,
-                    alt: 'user profile pic'
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative w-[300px] h-[500px] overflow-hidden ",
+                    style: {
+                        borderRadius: 15,
+                        overflow: 'hidden',
+                        backgroundColor: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["colors"].mainGrayDark
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative w-full h-full",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                src: user.profilePic,
+                                alt: "Header Image",
+                                // fill = {true}
+                                width: 300,
+                                height: 500,
+                                objectFit: "cover",
+                                style: {
+                                    zIndex: 0
+                                },
+                                className: "  absolute top-0 left-0  right-0"
+                            }, void 0, false, {
+                                fileName: "[project]/components/UserCarousel.tsx",
+                                lineNumber: 16,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute bottom-0 left-0 w-full h-[600px] rounded-[15px] overflow-hidden",
+                                style: {
+                                    background: `linear-gradient(to bottom, transparent 0%, #262626 45%, #262626 100%)`,
+                                    zIndex: 0
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/components/UserCarousel.tsx",
+                                lineNumber: 29,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            zIndex: 20
+                                        },
+                                        className: "relative z-20 pt-20 text-white justify-center items-center w-full h-full ",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                                className: "font-extrabold text-lg  text-center",
+                                                style: {
+                                                    color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["colors"].secondary
+                                                },
+                                                children: [
+                                                    user.firstName,
+                                                    " ",
+                                                    user.lastName
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/UserCarousel.tsx",
+                                                lineNumber: 38,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-center text-xs font-bold",
+                                                children: [
+                                                    "@",
+                                                    user.username
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/UserCarousel.tsx",
+                                                lineNumber: 39,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/UserCarousel.tsx",
+                                        lineNumber: 37,
+                                        columnNumber: 33
+                                    }, this),
+                                    user.currentRotation.map((rotation)=>{
+                                        console.log('ROTATION', rotation);
+                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, rotation.id, false, {
+                                            fileName: "[project]/components/UserCarousel.tsx",
+                                            lineNumber: 45,
+                                            columnNumber: 37
+                                        }, this);
+                                    })
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/UserCarousel.tsx",
+                                lineNumber: 36,
+                                columnNumber: 29
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/UserCarousel.tsx",
+                        lineNumber: 15,
+                        columnNumber: 25
+                    }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/UserCarousel.tsx",
                     lineNumber: 13,
