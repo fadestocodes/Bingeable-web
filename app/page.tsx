@@ -16,9 +16,9 @@ export default async function Home() {
 
   return (
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-2 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-    <div className="w-full h-full   bg-[#171717]">
+    <div className="w-full h-full  relative bg-[#171717]">
     
-      <main className="flex flex-col gap-[32px] relative  w-full h-full row-start-2 items-center sm:items-start bg-[#171717]">
+      <main className="flex flex-col gap-[32px] relative  w-full h-full  items-center sm:items-start bg-[#171717]">
         <div
             className="absolute top-0 left-0 w-full h-full "
             style={{
@@ -28,7 +28,7 @@ export default async function Home() {
           />
         <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative" style={{height:500, paddingTop:300}}>
           <h1 className="text-white text-4xl font-bold text-left justify-self-center pl-4 " style={{ position:'relative', width:350, zIndex:50}}>Join a community of real film lovers.</h1>
-          <div className="w-full h-full gap-1 pt-4 z-40 justify-center items-center justify-self-center" >
+          <div className=" h-full  gap-1 pt-4 z-40 justify-center items-center  relative" >
             <DownloadButton  />
             <h2 className="text-white justify-self-center text-sm text-left pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
           </div>
