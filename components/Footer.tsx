@@ -14,11 +14,11 @@ const igUrl = 'https://www.instagram.com/bingeableapp'
 const Footer = () => {
     const [ input, setInput ] = useState('')
 
-    const handleInput = (e) => {
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         console.log(`SUBMITTING: ${input}`)
         e.preventDefault()
 
@@ -52,10 +52,10 @@ const Footer = () => {
             <div className='relative  flex border-4 justify-center items-center' >
                 <input onChange={handleInput} type="email"  placeholder='exampleemail@gmail.com' name='email' value={input} className='w-[350]  justify-self-center'
                 style={{paddingLeft:20, paddingRight:20, paddingTop:10, paddingBottom:10,backgroundColor:colors.secondary, borderRadius:30}}/>
-                <div onClick={handleSubmit} className='cursor-pointer absolute flex justify-center items-center right-2 rounded-full
+                <button type='submit' className='cursor-pointer absolute flex justify-center items-center right-2 rounded-full
                  w-[60] h-[35px]' style={{backgroundColor:colors.primary}}>
                     <IoIosMail size={24} color={colors.secondary} />
-                </div>
+                </button>
             </div>
         </form>
         <div className='flex flex-row gap-3 pt-5'>

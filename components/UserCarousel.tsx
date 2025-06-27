@@ -7,8 +7,11 @@ import { colors } from '@/constants/Colors'
 import { posterURL } from '@/constants/tmdbPosterUrl'
 import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 
+type UserCarouselProps = {
+    usersList: User[];
+  };
 
-const UserCarousel = ({ usersList } : User[]) => {
+const UserCarousel = ({ usersList }: UserCarouselProps) => {
 
         
     return (
@@ -54,7 +57,7 @@ const UserCarousel = ({ usersList } : User[]) => {
 
                                     <p className='z-20 text-xs font-bold' style={{color:colors.mainGray}}>Current Rotation</p>
                                     <div className=' gap-2 flex flex-row  justify-center items-center'>
-                                        { user.currentRotation.map( rotation => {
+                                        { user?.currentRotation?.map( rotation => {
                                               const imageUrl = rotation?.movie?.posterPath || rotation?.tv?.posterPath
                                               ?  `${posterURL}/${rotation?.movie?.posterPath || rotation?.tv?.posterPath}`
                                               : posterFallback ; // Make sure this exists in your /public folder

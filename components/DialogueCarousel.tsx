@@ -9,8 +9,13 @@ import { MdOutlineMessage } from 'react-icons/md'
 import { FaRetweet } from "react-icons/fa6";
 import { formatDate } from '@/app/lib/formatDate'
 import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
+import { Dialogue } from '@/app/types'
 
-const DialogueCarousel = ({dialogues}) => {
+type DialogueCarouselProps = {
+    dialogues : Dialogue[]
+}
+
+const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
 
   return (
     <div className='w-full h-auto flex flex-row gap-3 items-start overflow-hidden  '>
