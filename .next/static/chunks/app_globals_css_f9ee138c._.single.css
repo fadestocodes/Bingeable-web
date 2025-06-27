@@ -6,6 +6,7 @@
       --tw-translate-y: 0;
       --tw-translate-z: 0;
       --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
@@ -22,6 +23,9 @@
 
 @layer theme {
   :root, :host {
+    --color-amber-300: oklch(87.9% .169 91.605);
+    --color-green-200: oklch(92.5% .084 155.995);
+    --color-green-300: oklch(87.1% .15 154.449);
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
@@ -31,6 +35,8 @@
     --text-sm--line-height: calc(1.25 / .875);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
@@ -258,6 +264,14 @@
     right: calc(var(--spacing) * 0);
   }
 
+  .right-2 {
+    right: calc(var(--spacing) * 2);
+  }
+
+  .right-5 {
+    right: calc(var(--spacing) * 5);
+  }
+
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
@@ -310,6 +324,10 @@
     display: none;
   }
 
+  .h-\[00px\] {
+    height: 0;
+  }
+
   .h-\[20\%\] {
     height: 20%;
   }
@@ -318,8 +336,28 @@
     height: 30px;
   }
 
+  .h-\[35px\] {
+    height: 35px;
+  }
+
+  .h-\[100px\] {
+    height: 100px;
+  }
+
+  .h-\[200px\] {
+    height: 200px;
+  }
+
+  .h-\[300px\] {
+    height: 300px;
+  }
+
   .h-\[320px\] {
     height: 320px;
+  }
+
+  .h-\[400px\] {
+    height: 400px;
   }
 
   .h-\[450px\] {
@@ -342,12 +380,44 @@
     min-height: 100vh;
   }
 
+  .w-\[30\%\] {
+    width: 30%;
+  }
+
   .w-\[30px\] {
     width: 30px;
   }
 
+  .w-\[35px\] {
+    width: 35px;
+  }
+
   .w-\[50\%\] {
     width: 50%;
+  }
+
+  .w-\[50\], .w-\[50px\] {
+    width: 50px;
+  }
+
+  .w-\[60\%\] {
+    width: 60%;
+  }
+
+  .w-\[60\], .w-\[60px\] {
+    width: 60px;
+  }
+
+  .w-\[70\%\] {
+    width: 70%;
+  }
+
+  .w-\[75\%\] {
+    width: 75%;
+  }
+
+  .w-\[80\%\] {
+    width: 80%;
   }
 
   .w-\[100\%\] {
@@ -356,6 +426,14 @@
 
   .w-\[200px\] {
     width: 200px;
+  }
+
+  .w-\[350\] {
+    width: 350px;
+  }
+
+  .w-\[400px\] {
+    width: 400px;
   }
 
   .w-full {
@@ -477,6 +555,33 @@
     border-radius: 3.40282e38px;
   }
 
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+
+  .border-3 {
+    border-style: var(--tw-border-style);
+    border-width: 3px;
+  }
+
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
+
+  .border-green-200 {
+    border-color: var(--color-green-200);
+  }
+
+  .border-green-300 {
+    border-color: var(--color-green-300);
+  }
+
   .bg-\[\#171717\] {
     background-color: #171717;
   }
@@ -540,6 +645,14 @@
     padding-block: calc(var(--spacing) * 10);
   }
 
+  .py-12 {
+    padding-block: calc(var(--spacing) * 12);
+  }
+
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
+  }
+
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
   }
@@ -550,6 +663,10 @@
 
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
   }
 
   .pt-6 {
@@ -574,6 +691,10 @@
 
   .pt-40 {
     padding-top: calc(var(--spacing) * 40);
+  }
+
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
   }
 
   .pb-4 {
@@ -614,6 +735,11 @@
 
   .font-mono {
     font-family: var(--font-geist-mono);
+  }
+
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
 
   .text-3xl {
@@ -685,6 +811,20 @@
 
   .opacity-60 {
     opacity: .6;
+  }
+
+  @media (hover: hover) {
+    .hover\:-translate-y-3:hover {
+      --tw-translate-y: calc(var(--spacing) * -3);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:translate-y-3:hover {
+      --tw-translate-y: calc(var(--spacing) * 3);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
   }
 
   @media (width >= 40rem) {
@@ -844,6 +984,12 @@ body {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 
 @property --tw-gradient-position {

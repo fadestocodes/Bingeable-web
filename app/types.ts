@@ -20,3 +20,5 @@ export type Changelog = {
     releaseDate : string,
     changes : string[]
 }
+
+export type
