@@ -4,7 +4,7 @@ import { User } from '@/app/types'
 import React from 'react'
 import Image from 'next/image'
 import { colors } from '@/constants/Colors'
-import { posterURL, posterURLlow } from '@/constants/tmdbPosterUrl'
+import { posterURL } from '@/constants/tmdbPosterUrl'
 import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 
 

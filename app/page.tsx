@@ -1,13 +1,10 @@
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
 import { User, Dialogue } from "./types";
 import { getUsersForCarousel } from "./lib/api/user";
 import { colors } from "@/constants/Colors";
 import UserCarousel from "@/components/UserCarousel";
 import DialogueCarousel from "@/components/DialogueCarousel";
 import { getLandingPageDialogues } from "./lib/api/dialogue";
-import { FaApple } from "react-icons/fa6";
-import Link from "next/link";
 import DownloadButton from "@/components/DownloadButton";
 
 
@@ -67,8 +64,8 @@ export default async function Home() {
         </section>
       </main>
       <section className="  gap-5 py-10 w-full flex flex-col justify-center items-center" style={{backgroundColor:colors.primary}}>
-        <section className=" gap-0 flex flex-col justify-center items-center z-20 pt-40 lg:pt-20  lg:flex-row lg:gap-5 ">
-            <div className=" gap-5 items-center justify-center relative flex flex-col w-[100%] md:w-[65%] px-12 lg:w-[35%]"  style={{ }}>
+        <section className=" gap-15 sm:gap-0 flex flex-col justify-center items-center z-20 pt-40 lg:pt-20  lg:flex-row lg:gap-5 ">
+            <div className=" gap-3 items-center justify-center relative flex flex-col w-[100%] md:w-[65%] px-12 lg:w-[35%]"  style={{ }}>
               <h2 className="text-white  text-3xl font-bold text-left justify-self-center" >Follow your friends & their activities</h2>
               <p className="text-white   text-left justify-self-center" style={{color:colors.mainGray}}>Stay up to date with your friends from their Dialogue posts, recent watches, ratings and more.</p>
             </div>
@@ -81,12 +78,12 @@ export default async function Home() {
               // className="-rotate-[0.7deg]"
             />
         </section>
-        <section className="gap-10 flex flex-col justify-center items-center z-20 pt-0 lg:pt-40  lg:flex-row lg:gap-5">
-          <div className="w-full gap-5 items-center justify-center relative flex flex-col">
+        <section className="gap-15 sm:gap:0 flex flex-col justify-center items-center z-20 pt-0 lg:pt-40  lg:flex-row lg:gap-5">
+          <div className="w-full gap-3 items-center justify-center relative flex flex-col px-10 ">
             <h2 className="text-white text-3xl font-bold text-left justify-self-center" style={{}}>Not just films, TV shows too</h2>
             <p className="text-white   text-left justify-self-center" style={{color:colors.mainGray}}>An app like this should also have shows, don't you think?</p>
           </div>
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full ">
             <Image 
               src={'/screenshots/bingeable-screenshots_06.png'}
               width={500}
@@ -104,8 +101,8 @@ export default async function Home() {
           </div>
 
         </section>
-          <section className="gap-10 flex w-full flex-col justify-center items-center z-20 pt-0 lg:pt-40  lg:flex-row lg:gap-5 ">
-            <div className=" gap-5 items-center justify-center relative flex flex-col  px-12 w-[100%] md:w-[65%] lg:w-[30%] " >
+          <section className="gap-20 sm:gap-5 flex w-full flex-col justify-center items-center z-20 pt-0 lg:pt-40  lg:flex-row lg:gap-5 ">
+            <div className=" gap-3 items-center justify-center relative flex flex-col  px-12 w-[100%] md:w-[65%] lg:w-[30%] " >
               <h2 className="text-white text-3xl font-bold text-left justify-self-center " style={{}}>Send personalized recommendations</h2>
               <p className="text-white   text-left justify-self-center " style={{color:colors.mainGray}}>Don't you love sending good movie recs? Never lose track of your sent or received recommendations again and reply to messages about the rec.</p>
             </div>
