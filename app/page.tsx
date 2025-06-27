@@ -26,23 +26,22 @@ export default async function Home() {
               zIndex: 40,
             }}
           />
-        <section className="justify-center items-center w-full h-full gap-3 flex flex-col" style={{height:500, paddingTop:300}}>
+        <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative" style={{height:500, paddingTop:300}}>
           <h1 className="text-white text-4xl font-bold text-left justify-self-center pl-4 " style={{ position:'relative', width:350, zIndex:50}}>Join a community of real film lovers.</h1>
-            <div className="w-full h-full gap-1 pt-4 z-40 justify-center items-center" >
-              <DownloadButton  />
-              <h2 className="text-white justify-self-center text-sm text-left pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
-            </div>
-            <div className=" w-full h-full  overflow-hidden" style={{}}>
-              {/* Background Image */}
-              <Image
-                src={'/heroimage.jpg'}
-                alt="Backdrop"
-                fill
-                className="object-cover"
-                priority
-                style={{zIndex:0}}
-              />
-
+          <div className="w-full h-full gap-1 pt-4 z-40 justify-center items-center justify-self-center" >
+            <DownloadButton  />
+            <h2 className="text-white justify-self-center text-sm text-left pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
+          </div>
+          <div className=" w-full h-full  overflow-hidden" style={{}}>
+            {/* Background Image */}
+            <Image
+              src={'/heroimage.jpg'}
+              alt="Backdrop"
+              fill
+              className="object-cover"
+              priority
+              style={{zIndex:0}}
+            />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#171717]" style={{zIndex:0}} />
           </div>
