@@ -14,3 +14,9 @@ export type Dialogue = {
     downvotes : number,
     reposts : number,
 }
+
+export type Changelog = {
+    version : string,
+    releaseDate : string,
+    changes : string[]
+}

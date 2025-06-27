@@ -5,6 +5,8 @@ import React from 'react'
 import Image from 'next/image'
 import { colors } from '@/constants/Colors'
 import { posterURL, posterURLlow } from '@/constants/tmdbPosterUrl'
+import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
+
 
 const UserCarousel = ({ usersList } : User[]) => {
 
@@ -13,21 +15,20 @@ const UserCarousel = ({ usersList } : User[]) => {
         <div className='flex-row flex gap-5 w-full overflow-hidden '>
             <div className="flex gap-5 w-max animate-scroll-left"
                 style={{
-                animation: 'scrollLeft 40s linear infinite',
+                animation: 'scrollLeft 70s linear infinite',
                 }}>
             { usersList.map( user => (
                 <div key={user.id} style={{  width:'100%', borderRadius:15}} >
-                    <div className="relative w-[200px] h-[320px] overflow-hidden " style={{ borderRadius:30, overflow:'hidden', backgroundColor:colors.mainGrayDark }}>
+                    <div className="relative w-[200px] h-[320px] overflow-hidden  " style={{ borderRadius:30, overflow:'hidden', backgroundColor:colors.mainGrayDark }}>
                         {/* Background Image */}
                         <div className='relative w-full h-full  '>
                             <Image
-                                src={user.profilePic}
+                                src={user?.profilePic ? user.profilePic : avatarFallback}
                                 alt="Header Image"
                                 // fill = {true}
+
                                 width={200}
                                 height={200}
-                                objectFit='cover'
-                                
                                 style={{zIndex:0}}
                                 className=" absolute top-0 left-0  right-0 pb-10"
                             />
@@ -54,15 +55,20 @@ const UserCarousel = ({ usersList } : User[]) => {
                                     <p className='z-20 text-xs font-bold' style={{color:colors.mainGray}}>Current Rotation</p>
                                     <div className=' gap-2 flex flex-row  justify-center items-center'>
                                         { user.currentRotation.map( rotation => {
-                                            console.log('ROTATION',rotation)
+                                              const imageUrl = rotation?.movie?.posterPath || rotation?.tv?.posterPath
+                                              ?  `${posterURL}/${rotation?.movie?.posterPath || rotation?.tv?.posterPath}`
+                                              : posterFallback ; // Make sure this exists in your /public folder
                                             return (
                                             <div key={rotation.id} className='z-20 ' style={{borderRadius:5 , overflow:'hidden'}}>
-                                                <Image
-                                                    width={25}
-                                                    height={80}
-                                                    src={`${posterURL}/${rotation?.movie?.posterPath || rotation?.tv?.posterPath}`}
-                                                    alt='movie poster'
-                                                />
+                                            
+                                                    <Image
+                                                        width={25}
+                                                        height={80}
+                                                        src={imageUrl}
+                                                        alt='movie poster'
+                                                    />
+
+                                             
                                             </div>
                                         ) }) }
                                     </div>

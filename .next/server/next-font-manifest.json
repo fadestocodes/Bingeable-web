@@ -1,9 +1,15 @@
 {
   "app": {
-    "[project]/app/page": [
+    "[project]/app/changelog/page": [
+      "static/media/u_4k0q2lgwslOqpF_6gQ8kELY7pMT_Dfq9PrNX0-s.p.534f34b3.woff2",
       "static/media/u_450q2lgwslOqpF_6gQ8kELawFpWs39pvk-s.p.8b9b558d.woff2",
       "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.da1ebef7.woff2",
+      "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2"
+    ],
+    "[project]/app/page": [
       "static/media/u_4k0q2lgwslOqpF_6gQ8kELY7pMT_Dfq9PrNX0-s.p.534f34b3.woff2",
+      "static/media/u_450q2lgwslOqpF_6gQ8kELawFpWs39pvk-s.p.8b9b558d.woff2",
+      "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.da1ebef7.woff2",
       "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2"
     ]
   },

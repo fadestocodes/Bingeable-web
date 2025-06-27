@@ -1,0 +1,1 @@
+export const appStoreUrl = "https://apps.apple.com/us/app/bingeable-app-for-film-lovers/id6744092767"

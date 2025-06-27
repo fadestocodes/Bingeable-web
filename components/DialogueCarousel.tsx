@@ -8,15 +8,16 @@ import { posterURLlow } from '@/constants/tmdbPosterUrl'
 import { MdOutlineMessage } from 'react-icons/md'
 import { FaRetweet } from "react-icons/fa6";
 import { formatDate } from '@/app/lib/formatDate'
+import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 
 const DialogueCarousel = ({dialogues}) => {
 
   return (
     <div className='w-full h-auto flex flex-row gap-3 items-start overflow-hidden  '>
          <div className="flex flex-row items-start gap-5 w-max animate-scroll-left"
-                style={{
-                animation: 'scrollLeft 70s linear infinite',
-                }}>
+            style={{
+            animation: 'scrollLeft 70s linear infinite',
+            }}>
         { dialogues.map( dialogue => (
 
             <div key={dialogue.id} className='flex flex-col justify-between items-center py-4 px-6 gap-3  overflow-hidden  ' style={{ minWidth:400, borderRadius:15, backgroundColor:colors.mainGrayDark}}>
@@ -24,14 +25,14 @@ const DialogueCarousel = ({dialogues}) => {
                     <div className='flex flex-row w-full  justify-between items-center ' style={{}} >
                         <div className='flex flex-row gap-2 items-center  '>
                             <div className="w-[30px] h-[30px] relative rounded-full overflow-hidden">
-                                <Image
-                                    src={dialogue.user.profilePic}
-                               fill={true}
-                               objectFit='cover'
-                                    alt='user profile picture'
-                                    className='object-cover'
-                                    style={{ overflow:'hidden'}}
-                                />
+                                    <Image
+                                        src={dialogue?.user?.profilePic ? dialogue.user.profilePic : avatarFallback }
+                                        fill={true}
+                                        alt='user profile picture'
+                                        className='object-cover'
+                                        style={{ overflow:'hidden'}}
+                                    />
+                              
                             </div>
                             <p className='text-sm' style={{color:colors.mainGray}}>@{dialogue.user.username}</p>
                         </div>
@@ -39,10 +40,10 @@ const DialogueCarousel = ({dialogues}) => {
                     
                     </div>
                     <div className='w-full justify-center items-center pt-8 gap-3'>
-                        <p className='courier justify-self-center text-sm' style={{  color:colors.secondary}}>{dialogue.user.firstName}</p>
+                        <p className='courier justify-self-center text-sm capitalize' style={{ textTransform:'uppercase', color:colors.secondary}}>{dialogue.user.firstName}</p>
                         <p className='courier text-white justify-self-center text-sm' style={{}}>{dialogue.content}</p>
                     </div>
-                    { dialogue.image && (
+                    { dialogue?.image && (
                         <div className='w-full h-full relative justify-center items-center'>
                             <Image 
                                 src={dialogue.image}
@@ -56,10 +57,14 @@ const DialogueCarousel = ({dialogues}) => {
                 </div>
                 { dialogue.mentions && (
                     <div className='w-full justify-start flex flex-row gap-2 pt-4'>
-                        { dialogue.mentions.map( mention => (
+                        { dialogue.mentions.map( mention => {
+                        const imageUrl = mention?.movie?.posterPath || mention?.tv?.posterPath
+                        ?  `${posterURLlow}/${mention?.movie?.posterPath || mention?.tv?.posterPath}`
+                        : posterFallback ; // Make sure this exists in your /public folder
+                        return (
                             <div key={mention.id}>
                                 <Image
-                                    src={`${posterURLlow}/${mention?.movie?.posterPath || mention?.tv?.posterPath}`}
+                                    src={imageUrl}
                                     alt='poster for mentioned movie or tv show'
                                     height={80}
                                     width={35}
@@ -67,7 +72,7 @@ const DialogueCarousel = ({dialogues}) => {
                                 />
                             </div>
 
-                        ) ) }
+                        ) }) }
                     </div>
                 ) }
                 <div className='w-full flex flex-row  bottom-4 gap-6 justify-start items-center'>

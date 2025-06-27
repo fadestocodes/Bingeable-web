@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Courier_Prime } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { colors } from "@/constants/Colors";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +34,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${courierPrime.variable} antialiased`}
-        style={{ fontFamily: "var(--font-geist-sans)" }}
+        style={{ fontFamily: "var(--font-geist-sans)" , backgroundColor:colors.primary}}
       >
+      <header className="z-50 pt-6 absolute w-full">
+        <Navbar />
+      </header>
         {children}
       </body>
     </html>
