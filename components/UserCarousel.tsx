@@ -8,7 +8,7 @@ import { posterURL } from '@/constants/tmdbPosterUrl'
 import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 
 type UserCarouselProps = {
-    usersList: User[];
+    usersList: User[] | null;
   };
 
 const UserCarousel = ({ usersList }: UserCarouselProps) => {
@@ -20,7 +20,7 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                 style={{
                 animation: 'scrollLeft 70s linear infinite',
                 }}>
-            { usersList.map( user => (
+            { usersList?.map( user => (
                 <div key={user.id} style={{  width:'100%', borderRadius:15}} >
                     <div className="relative w-[200px] h-[320px] overflow-hidden  " style={{ borderRadius:30, overflow:'hidden', backgroundColor:colors.mainGrayDark }}>
                         {/* Background Image */}

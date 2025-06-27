@@ -6,24 +6,23 @@ import { colors } from '@/constants/Colors'
 const ChangelogPage = () => {
 
   return (
-    <div className=' relative w-full h-full flex flex-col justify-center items-center '>
-        <div className='w-full h-[1000] relative'>
+    <div className=' relative w-full min-h-[1300px] flex flex-col justify-start items-center'>
+        <div className='w-full h-[1000px] absolute top-0'>
             <Image
                 src={'/heroimage2.jpg'}
                 fill={true}
                 alt='hero image'
-                className='object-cover  absolute top-0'
+                className='object-cover  '
             />
         </div>
-        <div className='w-full h-full bg-black absolute top-0 opacity-60 z-10' />
+        <div className='w-full h-[1000px] bg-black absolute  top-0 opacity-70 z-10' />
         <div
-            className="absolute top-0 left-0 w-full h-full  overflow-hidden"
+            className="absolute top-0 left-0 w-full h-[1000px]  overflow-hidden z-10"
             style={{
-                background: `linear-gradient(to bottom, transparent 0%, transparent 70%,   #171717 100%)`,
-                zIndex: 10,
+                background: `linear-gradient(to bottom, transparent 0%, transparent 60%,   #171717 100%)`
             }}
         />
-        <section className='absolute top-40 justify-center items-center  gap-5 flex flex-col pb-40 px-20 w-full'>
+        <section className='relative top-40 z-30  justify-center items-center  gap-5 flex flex-col pb-40 px-20 w-full'>
             <div className='flex flex-col  gap-5 justify-center items-center w-[100%] md:w-[60%] lg:w-[30%]'>
                 <h1 className='text-white text-3xl font-bold z-10 '>Changelog</h1>
                 <h1 className='text-white  font-normal z-10  justify-self-center '>We serve to make a better user experience for you. Check out our progress over the version updates.</h1>
@@ -42,8 +41,9 @@ const ChangelogPage = () => {
                         ) ) }
                     </div>
                 ) ) }
+            </section>
         </section>
-        </section>
+        
     </div>
   )
 }

@@ -12,7 +12,7 @@ import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 import { Dialogue } from '@/app/types'
 
 type DialogueCarouselProps = {
-    dialogues : Dialogue[]
+    dialogues : Dialogue[] | null
 }
 
 const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
@@ -23,7 +23,7 @@ const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
             style={{
             animation: 'scrollLeft 70s linear infinite',
             }}>
-        { dialogues.map( dialogue => (
+        { dialogues?.map( dialogue => (
 
             <div key={dialogue.id} className='flex flex-col justify-between items-center py-4 px-6 gap-3  overflow-hidden  ' style={{ minWidth:400, borderRadius:15, backgroundColor:colors.mainGrayDark}}>
                 <div className='w-full flex flex-col gap-3'>

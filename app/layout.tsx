@@ -41,11 +41,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${courierPrime.variable} antialiased`}
         style={{ fontFamily: "var(--font-geist-sans)" , backgroundColor:colors.primary}}
       >
-      <header className="z-50 pt-6 absolute w-full">
-        <Navbar />
-      </header>
-      {children}
-        <Footer />
+          <header className="z-50 pt-6 absolute w-full">
+            <Navbar />
+          </header>
+          {children}
+          <footer className="z-50  w-full">
+            <Footer />
+          </footer>
       </body>
     </html>
   );
