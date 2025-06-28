@@ -632,7 +632,7 @@ const DownloadButton = ()=>{
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         onClick: handleClick,
-        className: "w-full  justify-self-center cursor-pointer justify-center items-center text-center font-semibold py-2  flex flex-row gap-1 z-10",
+        className: "w-full  px-10 justify-self-center cursor-pointer justify-center items-center text-center font-semibold py-2  flex flex-row gap-1 z-10",
         style: {
             backgroundColor: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["colors"].secondary,
             borderRadius: 30
