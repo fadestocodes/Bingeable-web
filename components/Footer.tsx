@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
             <div className='relative  flex justify-center items-center ' >
                 <input onChange={handleInput} type="email"  placeholder='exampleemail@gmail.com' name='email' value={input} className=' w-[500px] justify-self-center'
-                style={{paddingLeft:20, width:320, paddingRight:20, paddingTop:10, paddingBottom:10,backgroundColor:'white', borderRadius:30}}/>
+                style={{paddingLeft:20, color:colors.primary, width:320, paddingRight:20, paddingTop:10, paddingBottom:10,backgroundColor:'white', borderRadius:30}}/>
                 <button disabled={!input} type='submit' className='cursor-pointer absolute flex justify-center items-center right-2 rounded-full
                  w-[60] h-[35px]' style={{backgroundColor:colors.primary}}>
                     <IoIosMail size={24} color={colors.secondary} />

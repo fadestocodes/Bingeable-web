@@ -287,6 +287,7 @@ const Footer = ()=>{
                                 className: " w-[500px] justify-self-center",
                                 style: {
                                     paddingLeft: 20,
+                                    color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["colors"].primary,
                                     width: 320,
                                     paddingRight: 20,
                                     paddingTop: 10,

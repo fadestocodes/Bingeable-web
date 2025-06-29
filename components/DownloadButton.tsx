@@ -14,7 +14,7 @@ const DownloadButton = () => {
   return (
     <div onClick={handleClick} className="w-full  px-10 justify-self-center cursor-pointer justify-center items-center text-center font-semibold py-2  flex flex-row gap-1 z-10" style={{backgroundColor:colors.secondary, borderRadius:30 }}>
         <FaApple size={24} color={colors.primary} style={{paddingBottom:4}}/>
-        <p>Download iOS App</p> 
+        <p style={{color:colors.primary}}>Download iOS App</p> 
     </div>
   )
 }
