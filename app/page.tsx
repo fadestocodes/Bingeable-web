@@ -30,7 +30,7 @@ export default async function Home() {
           <h1 className="text-white text-4xl font-bold text-left justify-self-center pl-4 " style={{ position:'relative', width:350, zIndex:50}}>Join a community of real film lovers.</h1>
           <div className=" h-full  gap-1 pt-4 z-40 justify-center items-center  relative" >
             <DownloadButton  />
-            <h2 className="text-white justify-self-center text-sm text-left pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
+            <h2 className="text-white justify-self-center text-sm text-center pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
           </div>
           <div className=" w-full h-full  overflow-hidden" style={{}}>
             {/* Background Image */}
@@ -48,6 +48,7 @@ export default async function Home() {
             
         </section>
         <section className="w-full h-full justify-center items-center pb-8" style={{position:'relative'}} >
+       
           <div className=" w-full h-full flex flex-col justify-center items-center gap-10 ">
             <UserCarousel  usersList={usersList}/>
             <div className="justify-center items-center gap-1  w-full flex flex-col">
@@ -62,7 +63,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
-      <section className="  gap-5 py-10 w-full flex flex-col justify-center items-center" style={{backgroundColor:colors.primary}}>
+      <section className="  gap-5 py-10 w-full h-full flex relative flex-col justify-center items-center" style={{backgroundColor:colors.primary}}>
         <section className=" gap-15 sm:gap-0 flex flex-col justify-center items-center z-20 pt-40 lg:pt-20  lg:flex-row lg:gap-5 ">
             <div className=" gap-3 items-center justify-center relative flex flex-col w-[100%] md:w-[65%] px-12 lg:w-[35%]"  style={{ }}>
               <h2 className="text-white  text-3xl font-bold text-left justify-self-center" >Follow your friends & their activities</h2>
@@ -78,6 +79,7 @@ export default async function Home() {
             />
         </section>
         <section className="gap-15 sm:gap:0 flex flex-col justify-center items-center z-20 pt-0 lg:pt-40  lg:flex-row lg:gap-5">
+      
           <div className="w-full gap-3 items-center justify-center relative flex flex-col px-10 ">
             <h2 className="text-white text-3xl font-bold text-left justify-self-center" style={{}}>Not just films, TV shows too</h2>
             <p className="text-white   text-left justify-self-center" style={{color:colors.mainGray}}>An app like this should also have shows, don't you think?</p>

@@ -232,7 +232,7 @@ const Footer = ()=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full py-12 relative flex flex-col  justify-center items-center ",
+        className: "w-full pt-12 pb-20 relative flex flex-col  justify-center items-center ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                 onSubmit: handleSubmit,
@@ -268,7 +268,7 @@ const Footer = ()=>{
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative  flex justify-center items-center",
+                        className: "relative  flex justify-center items-center ",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 onChange: handleInput,
@@ -276,13 +276,14 @@ const Footer = ()=>{
                                 placeholder: "exampleemail@gmail.com",
                                 name: "email",
                                 value: input,
-                                className: "w-[350]  justify-self-center",
+                                className: " w-[500px] justify-self-center",
                                 style: {
                                     paddingLeft: 20,
+                                    width: 320,
                                     paddingRight: 20,
                                     paddingTop: 10,
                                     paddingBottom: 10,
-                                    backgroundColor: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["colors"].secondary,
+                                    backgroundColor: 'white',
                                     borderRadius: 30
                                 }
                             }, void 0, false, {
@@ -291,6 +292,7 @@ const Footer = ()=>{
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                disabled: !input,
                                 type: "submit",
                                 className: "cursor-pointer absolute flex justify-center items-center right-2 rounded-full w-[60] h-[35px]",
                                 style: {
