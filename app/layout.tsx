@@ -26,7 +26,20 @@ export const metadata: Metadata = {
   description: "A community to discuss your latest binge",
   icons : {
     icon : '/favicon.png'
-  }
+  },
+  openGraph: {
+    title: 'Bingeable: Social Media for Film Lovers',
+    description: 'A community to discuss your latest binge',
+    url: 'https://www.bingeable.app/',
+    siteName: 'Bingeable',
+    images: [
+      {
+        url: 'https://www.bingeable.app/favicon.png',
+        alt: 'Logo for Bingeable',
+      },
+    ],
+    type: 'website',
+  },
 
 };
 
