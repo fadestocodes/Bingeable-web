@@ -59,20 +59,20 @@ const UserCarousel = ({ usersList })=>{
                         alignItems: 'center'
                     },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative w-[180px] max-h-[320px] overflow-hidden ",
+                        className: "relative w-[180px] max-h-[320px] overflow-hidden  ",
                         style: {
                             borderRadius: 20,
                             backgroundColor: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["colors"].mainGrayDark
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative  justify-start items-center  overflow-hidden py-10 gap-3 ",
+                            className: "relative flex flex-col justify-center items-center  overflow-hidden py-10 gap-3 border-3 border-amber-400 w-full  ",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "",
                                     style: {
                                         height: 60,
                                         width: 60,
                                         borderRadius: 50,
-                                        overflow: 'hidden',
                                         paddingBottom: 10,
                                         position: 'relative',
                                         justifySelf: 'center'
@@ -87,7 +87,7 @@ const UserCarousel = ({ usersList })=>{
                                             zIndex: 0,
                                             objectFit: 'cover'
                                         },
-                                        className: "  rounded-full  justify-self-center"
+                                        className: "  rounded-full   "
                                     }, void 0, false, {
                                         fileName: "[project]/components/UserCarousel.tsx",
                                         lineNumber: 29,

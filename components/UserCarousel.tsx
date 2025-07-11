@@ -22,10 +22,10 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                 }}>
             { usersList?.map( user => (
                 <div key={user.id} style={{  width:'100%', borderRadius:15, justifyContent:'center', alignItems:'center'}} >
-                    <div className="relative w-[180px] max-h-[320px] overflow-hidden " style={{ borderRadius:20, backgroundColor:colors.mainGrayDark }}>
+                    <div className="relative w-[180px] max-h-[320px] overflow-hidden  " style={{ borderRadius:20, backgroundColor:colors.mainGrayDark }}>
                         {/* Background Image */}
-                        <div className='relative  justify-start items-center  overflow-hidden py-10 gap-3 '>
-                            <div style={{height:60, width:60, borderRadius:50, overflow:'hidden', paddingBottom:10, position:'relative', justifySelf:'center'}}>
+                        <div className='relative flex flex-col justify-center items-center  overflow-hidden py-10 gap-3 border-3 border-amber-400 w-full  '>
+                            <div className='' style={{height:60, width:60, borderRadius:50, paddingBottom:10, position:'relative', justifySelf:'center'}}>
                                 <Image
                                     src={user?.profilePic ? user.profilePic : avatarFallback}
                                     alt="Header Image"
@@ -34,7 +34,7 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                                     // width={60}
                                     // height={60}
                                     style={{zIndex:0, objectFit:'cover'}}
-                                    className="  rounded-full  justify-self-center"
+                                    className="  rounded-full   "
                                     />
                             </div>
 
