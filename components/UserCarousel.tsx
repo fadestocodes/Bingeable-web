@@ -24,7 +24,7 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                 <div key={user.id} style={{  width:'100%', borderRadius:15, justifyContent:'center', alignItems:'center'}} >
                     <div className="relative w-[180px] max-h-[320px] overflow-hidden  " style={{ borderRadius:20, backgroundColor:colors.mainGrayDark }}>
                         {/* Background Image */}
-                        <div className='relative flex flex-col justify-center items-center  overflow-hidden py-10 gap-3 border-3 border-amber-400 w-full  '>
+                        <div className='relative flex flex-col justify-center items-center  overflow-hidden py-10 gap-3 w-full  '>
                             <div className='' style={{height:60, width:60, borderRadius:50, paddingBottom:10, position:'relative', justifySelf:'center'}}>
                                 <Image
                                     src={user?.profilePic ? user.profilePic : avatarFallback}
