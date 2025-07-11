@@ -15,39 +15,41 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
 
         
     return (
-        <div className='flex-row flex gap-5 w-full overflow-hidden '>
-            <div className="flex gap-5 w-max animate-scroll-left"
+        <div className='flex-row flex gap-5 w-full overflow-hidden  h-full relative '>
+            <div className="flex gap-5 w-max animate-scroll-left justify-center items-center"
                 style={{
                 animation: 'scrollLeft 70s linear infinite',
                 }}>
             { usersList?.map( user => (
-                <div key={user.id} style={{  width:'100%', borderRadius:15}} >
-                    <div className="relative w-[200px] h-[320px] overflow-hidden  " style={{ borderRadius:30, overflow:'hidden', backgroundColor:colors.mainGrayDark }}>
+                <div key={user.id} style={{  width:'100%', borderRadius:15, justifyContent:'center', alignItems:'center'}} >
+                    <div className="relative w-[180px] max-h-[320px] overflow-hidden " style={{ borderRadius:20, backgroundColor:colors.mainGrayDark }}>
                         {/* Background Image */}
-                        <div className='relative w-full h-full  '>
-                            <Image
-                                src={user?.profilePic ? user.profilePic : avatarFallback}
-                                alt="Header Image"
-                                // fill = {true}
+                        <div className='relative  justify-start items-center  overflow-hidden py-10 gap-3 '>
+                            <div style={{height:60, width:60, borderRadius:50, overflow:'hidden', paddingBottom:10, position:'relative', justifySelf:'center'}}>
+                                <Image
+                                    src={user?.profilePic ? user.profilePic : avatarFallback}
+                                    alt="Header Image"
+                                    fill = {true}
 
-                                width={200}
-                                height={200}
-                                style={{zIndex:0}}
-                                className=" absolute top-0 left-0  right-0 pb-10"
-                            />
+                                    // width={60}
+                                    // height={60}
+                                    style={{zIndex:0, objectFit:'cover'}}
+                                    className="  rounded-full  justify-self-center"
+                                    />
+                            </div>
 
                             {/* Overlay Gradient */}
-                            <div
+                            {/* <div
                             className="absolute bottom-0 left-0 w-full h-[450px] rounded-[15px] overflow-hidden"
                             style={{
                                 background: `linear-gradient(to bottom, transparent 20%, #171717 55%, #171717 100%)`,
                                 zIndex: 0,
                             }}
-                            />
-                            <section>
-                                <div style={{zIndex:20}} className="relative z-20 pt-26 text-white justify-center items-center w-full h-full ">
-                                    <h1 className="font-extrabold text-sm  text-center" style={{color:colors.secondary}}>{user.firstName} {user.lastName}</h1>
-                                    <p className='text-center text-xs font-bold'>@{user.username}</p>
+                            /> */}
+                            <section className=''>
+                                <div style={{zIndex:20}} className="relative z-20  text-white justify-center items-center w-full h-full ">
+                                    <h1 className="font-extrabold text-xs  text-center pt-2" style={{color:colors.secondary}}>{user.firstName} {user.lastName}</h1>
+                                    <p className='text-center text-xs font-bold' style={{fontSize:9}}>@{user.username}</p>
                                     { user.bio && (
                                         <p className='px-6 pt-2 justify-self-center   font-mono' style={{fontSize:9.5, lineHeight:1.2}}>{user.bio}</p>
                                     ) }

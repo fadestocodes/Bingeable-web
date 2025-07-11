@@ -280,10 +280,11 @@ async function Home() {
                                         src: '/heroimage.jpg',
                                         alt: "Backdrop",
                                         fill: true,
-                                        className: "object-cover",
+                                        // className="object-cover"
                                         priority: true,
                                         style: {
-                                            zIndex: 0
+                                            zIndex: 0,
+                                            objectFit: 'cover'
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",

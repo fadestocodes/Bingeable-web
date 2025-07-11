@@ -38,9 +38,9 @@ export default async function Home() {
               src={'/heroimage.jpg'}
               alt="Backdrop"
               fill
-              className="object-cover"
+              // className="object-cover"
               priority
-              style={{zIndex:0}}
+              style={{zIndex:0, objectFit:'cover'}}
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#171717]" style={{zIndex:0}} />
