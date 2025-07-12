@@ -39,6 +39,7 @@ export default async function Home() {
               alt="Backdrop"
               fill
               // className="object-cover"
+              sizes="100vw"
               priority
               style={{zIndex:0, objectFit:'cover'}}
             />
