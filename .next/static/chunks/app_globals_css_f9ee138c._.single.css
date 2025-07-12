@@ -24,6 +24,7 @@
 @layer theme {
   :root, :host {
     --color-amber-400: oklch(82.8% .189 84.429);
+    --color-green-300: oklch(87.1% .15 154.449);
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
@@ -374,6 +375,14 @@
     width: 500px;
   }
 
+  .w-auto {
+    width: auto;
+  }
+
+  .w-fit {
+    width: fit-content;
+  }
+
   .w-full {
     width: 100%;
   }
@@ -505,6 +514,10 @@
 
   .border-amber-400 {
     border-color: var(--color-amber-400);
+  }
+
+  .border-green-300 {
+    border-color: var(--color-green-300);
   }
 
   .bg-\[\#171717\] {
@@ -640,6 +653,10 @@
 
   .text-left {
     text-align: left;
+  }
+
+  .text-start {
+    text-align: start;
   }
 
   .font-\[family-name\:var\(--font-geist-sans\)\] {

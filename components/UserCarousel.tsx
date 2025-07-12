@@ -51,7 +51,7 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                                     <h1 className="font-extrabold text-xs  text-center pt-2" style={{color:colors.secondary}}>{user.firstName} {user.lastName}</h1>
                                     <p className='text-center text-xs font-bold' style={{fontSize:9}}>@{user.username}</p>
                                     { user.bio && (
-                                        <p className='px-6 pt-2 justify-self-center   font-mono' style={{fontSize:9.5, lineHeight:1.2}}>{user.bio}</p>
+                                        <p className='px-6 pt-2 justify-self-center  text-center font-mono ' style={{fontSize:9.5, lineHeight:1.2}}>{user.bio}</p>
                                     ) }
                                     {/* Add any other components here */}
                                 </div>
