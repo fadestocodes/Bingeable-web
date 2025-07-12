@@ -28,7 +28,7 @@ export default async function Home() {
               zIndex: 40,
             }}
           />
-        <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative" style={{height:500, paddingTop:300}}>
+        <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative w-full"  style={{height:500, paddingTop:300}}>
           <div className=" w-full h-full  overflow-hidden" style={{}}>
             {/* Background Image */}
             <Image
@@ -47,9 +47,10 @@ export default async function Home() {
            initial= {{ opacity: 0 }}
            animate={{ opacity: 1 }}
            transition= {{ duration: 2 }}
-        >
-          <h1 className="text-white text-4xl font-bold text-left justify-self-center pl-4 " style={{ position:'relative', width:350, zIndex:50}}>Join a community of real film lovers.</h1>
-          <div className=" h-full  gap-1 pt-4 z-40 justify-center items-center  relative" >
+           className="w-full flex relative flex-col justify-center items-center"
+          >
+          <h1 className="text-white text-3xl md:text-4xl font-bold text-left justify-self-center pl-4  w-[290px]  md:w-[350px]" style={{ position:'relative', zIndex:50}}>Join a community of real film lovers.</h1>
+          <div className=" h-full  gap-1 pt-4 z-40 justify-center items-center  relative px-14" >
             <DownloadButton  />
             <h2 className="text-white justify-self-center text-sm text-center pt-2" style={{ position:'relative', zIndex:1}}>(web version in development)</h2>
           </div>
