@@ -28,9 +28,9 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                             <div className='' style={{height:60, width:60, borderRadius:50, paddingBottom:10, position:'relative', justifySelf:'center'}}>
                                 <Image
                                     src={user?.profilePic ? user.profilePic : avatarFallback}
-                                    alt="Header Image"
+                                    alt="User profile picture"
                                     fill = {true}
-
+                                    unoptimized
                                     // width={60}
                                     // height={60}
                                     style={{zIndex:0, objectFit:'cover'}}
@@ -70,6 +70,7 @@ const UserCarousel = ({ usersList }: UserCarouselProps) => {
                                                         width={25}
                                                         height={80}
                                                         src={imageUrl}
+                                                        unoptimized
                                                         alt='movie poster'
                                                     />
 

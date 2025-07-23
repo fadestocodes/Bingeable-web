@@ -36,6 +36,7 @@ export default async function Home() {
               alt="Backdrop"
               fill
               // className="object-cover"
+              unoptimized
               sizes="100vw"
               priority
               style={{zIndex:0, objectFit:'cover'}}
@@ -72,6 +73,7 @@ export default async function Home() {
                 src={'tmdb.svg'}
                 width={35}
                 height={35}
+                unoptimized
                 alt="powered by The Movie Database"
               />
             </div>
@@ -97,6 +99,7 @@ export default async function Home() {
               <Image 
                 src={'/screenshots/bingeable-screenshots_04.png'}
                 width={500}
+                unoptimized
                 height={500}
                 alt="screenshot of bingeable homepage"
                 className=" -translate-y-40 lg:translate-y-0 "
@@ -122,6 +125,7 @@ export default async function Home() {
             <Image 
               src={'/screenshots/bingeable-screenshots_06.png'}
               width={500}
+              unoptimized
               height={500}
               alt="screenshot of bingeable homepage"
                className=" -translate-y-40 lg:translate-y-0 "
@@ -154,6 +158,7 @@ export default async function Home() {
                   src={'/screenshots/bingeable-screenshots_05.png'}
                   width={500}
                   height={500}
+                  unoptimized
                   alt="screenshot of bingeable homepage"
                   className=" -translate-y-40 lg:translate-y-0 "
 
