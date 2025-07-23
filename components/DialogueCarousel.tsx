@@ -33,6 +33,7 @@ const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
                                     <Image
                                         src={dialogue?.user?.profilePic ? dialogue.user.profilePic : avatarFallback }
                                         fill={true}
+                                        unoptimized
                                         alt='user profile picture'
                                         className='object-cover'
                                         style={{ overflow:'hidden'}}
@@ -53,6 +54,7 @@ const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
                             <Image 
                                 src={dialogue.image}
                                 width={400}
+                                unoptimized
                                 height={400}
                                 alt='picture from user post'
                                 style={{borderRadius:15, height:200, objectFit:'cover'}}
