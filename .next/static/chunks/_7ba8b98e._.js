@@ -85,8 +85,9 @@ const UserCarousel = ({ usersList })=>{
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: user?.profilePic ? user.profilePic : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fallbackImages$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["avatarFallback"],
-                                        alt: "Header Image",
+                                        alt: "User profile picture",
                                         fill: true,
+                                        unoptimized: true,
                                         // width={60}
                                         // height={60}
                                         style: {
@@ -188,6 +189,7 @@ const UserCarousel = ({ usersList })=>{
                                                                 width: 25,
                                                                 height: 80,
                                                                 src: imageUrl,
+                                                                unoptimized: true,
                                                                 alt: "movie poster"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/UserCarousel.tsx",
@@ -345,6 +347,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                         src: dialogue?.user?.profilePic ? dialogue.user.profilePic : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fallbackImages$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["avatarFallback"],
                                                         fill: true,
+                                                        unoptimized: true,
                                                         alt: "user profile picture",
                                                         className: "object-cover",
                                                         style: {
@@ -371,7 +374,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                                    lineNumber: 42,
+                                                    lineNumber: 43,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
@@ -388,7 +391,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$formatDate$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatDate"])(dialogue.createdAt)
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 44,
+                                            lineNumber: 45,
                                             columnNumber: 25
                                         }, this)
                                     ]
@@ -409,7 +412,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.user.firstName
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 49,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -418,13 +421,13 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.content
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 49,
+                                            lineNumber: 50,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 48,
                                     columnNumber: 21
                                 }, this),
                                 dialogue?.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,6 +435,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: dialogue.image,
                                         width: 400,
+                                        unoptimized: true,
                                         height: 400,
                                         alt: "picture from user post",
                                         style: {
@@ -441,12 +445,12 @@ const DialogueCarousel = ({ dialogues })=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/DialogueCarousel.tsx",
-                                        lineNumber: 53,
+                                        lineNumber: 54,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 53,
                                     columnNumber: 25
                                 }, this)
                             ]
@@ -470,18 +474,18 @@ const DialogueCarousel = ({ dialogues })=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/DialogueCarousel.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 73,
                                         columnNumber: 33
                                     }, this)
                                 }, mention.id, false, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 72,
                                     columnNumber: 29
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/components/DialogueCarousel.tsx",
-                            lineNumber: 64,
+                            lineNumber: 66,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -495,7 +499,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["colors"].mainGray
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 87,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -506,13 +510,13 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.upvotes
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 88,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 84,
+                                    lineNumber: 86,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -523,7 +527,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["colors"].mainGray
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 91,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -534,13 +538,13 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.downvotes
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 90,
+                                            lineNumber: 92,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 90,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -551,7 +555,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["colors"].mainGray
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 95,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -562,13 +566,13 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.comments.length
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 94,
+                                            lineNumber: 96,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 92,
+                                    lineNumber: 94,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -579,7 +583,7 @@ const DialogueCarousel = ({ dialogues })=>{
                                             color: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$Colors$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["colors"].mainGray
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 97,
+                                            lineNumber: 99,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -590,19 +594,19 @@ const DialogueCarousel = ({ dialogues })=>{
                                             children: dialogue.downvotes
                                         }, void 0, false, {
                                             fileName: "[project]/components/DialogueCarousel.tsx",
-                                            lineNumber: 98,
+                                            lineNumber: 100,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/DialogueCarousel.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 98,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/DialogueCarousel.tsx",
-                            lineNumber: 83,
+                            lineNumber: 85,
                             columnNumber: 17
                         }, this)
                     ]
