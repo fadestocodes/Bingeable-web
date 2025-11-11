@@ -62,10 +62,10 @@ const PrivacyPage = () => {
       <p>
         Email:{" "}
         <a
-          href="mailto:fadestocodes@gmail.com"
+          href="mailto:hello@bingeable.app"
           style={{ color: "#007AFF", textDecoration: "none" }}
         >
-          fadestocodes@gmail.com
+          hello@bingeable.app
         </a>
       </p>
 

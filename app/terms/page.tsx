@@ -25,7 +25,7 @@ const TermsPage = () => {
 
   <h2>2. Zero-Tolerance Policy</h2>
   <p>We have a <strong>zero-tolerance policy</strong> for objectionable content and abusive users. We reserve the right to remove content and suspend or ban users who violate these Terms.</p>
-  <p>Users can report inappropriate content through the app or by contacting us directly at <a href="mailto:fadestocodes@gmail.com">fadestocodes@gmail.com</a>. Reports are reviewed promptly, and action will be taken at our discretion.</p>
+  <p>Users can report inappropriate content through the app or by contacting us directly at <a href="mailto:hello@bingeable.app">hello@bingeable.app</a>. Reports are reviewed promptly, and action will be taken at our discretion.</p>
 
   <h2>3. Content Rights</h2>
   <p>By posting content, you grant us a non-exclusive, worldwide, royalty-free license to use, display, reproduce, and distribute your content within the App. You retain full ownership of your content.</p>
@@ -40,7 +40,7 @@ const TermsPage = () => {
   <h2>6. Contact Us</h2>
   <p>If you have any questions or concerns, please contact us at:</p>
   <ul>
-    <li>Email: <a href="mailto:fadestocodes@gmail.com">fadestocodes@gmail.com</a></li>
+    <li>Email: <a href="mailto:hello@bingeable.app">hello@bingeable.app</a></li>
     <li>Website: <a href="https://bingeable.app" target="_blank">bingeable.app</a></li>
   </ul>
     </div>
