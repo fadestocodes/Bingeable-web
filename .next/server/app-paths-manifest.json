@@ -1,6 +1,6 @@
 {
-  "/page": "app/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/support/page": "app/support/page.js",
-  "/terms/page": "app/terms/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/page": "app/page.js"
 }

@@ -189,7 +189,9 @@ const colors = {
     darkGray: '#232533',
     lightGray: '#CDCDE0',
     green: '#84e38d',
-    red: '#fa8a84'
+    red: '#fa8a84',
+    newDarkGray: '#454242',
+    newLightGray: '#9CA3AF'
 };
 }}),
 "[project]/components/Footer.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {

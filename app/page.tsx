@@ -28,7 +28,7 @@ export default async function Home() {
               zIndex: 40,
             }}
           />
-        <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative w-full"  style={{height:500, paddingTop:300}}>
+        <section className="justify-center items-center w-full h-full gap-3 flex flex-col relative "  style={{height:500, paddingTop:300}}>
           <div className=" w-full h-full  overflow-hidden" style={{}}>
             {/* Background Image */}
             <Image

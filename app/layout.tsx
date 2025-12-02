@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { colors } from "@/constants/Colors";
 import Footer from "@/components/Footer";
+import {UserProvider} from '../app/lib/UserContext'
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +56,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${courierPrime.variable} antialiased`}
         style={{ fontFamily: "var(--font-geist-sans)" , backgroundColor:colors.primary}}
       >
+          <UserProvider>
+
           <header className="z-50 pt-6 absolute w-full">
             <Navbar />
           </header>
@@ -61,6 +65,7 @@ export default function RootLayout({
           <footer className="z-50  w-full">
             <Footer />
           </footer>
+          </UserProvider>
       </body>
     </html>
   );
