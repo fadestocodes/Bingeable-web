@@ -41,43 +41,32 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 async function apiFetch(url, options = {}) {
+    // Access token stored in memory (React state or module-level variable)
+    const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAccessToken"])(); // just in-memory, no SecureStore
+    let res = await fetch(url, {
+        ...options,
+        headers: {
+            ...options.headers || {},
+            Authorization: `Bearer ${token}`
+        },
+        credentials: "include"
+    });
+    if (res.status !== 401) return res;
+    // Access token expired → attempt refresh
     try {
-        // 1️⃣ Get current access token
-        let token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAccessToken"])();
-        console.log("[apiFetch] Sending token:", token);
-        // 2️⃣ Make the initial request
-        let res = await fetch(url, {
-            ...options,
-            headers: {
-                ...options.headers || {},
-                Authorization: token ? `Bearer ${token}` : undefined
-            },
-            credentials: "include"
-        });
-        console.log("the first res...", res);
-        // 3️⃣ If request succeeds, return it immediately
-        if (res.status !== 401) {
-            console.log("[apiFetch] Request succeeded with status", res.status);
-            return res;
-        }
-        console.log("[apiFetch] Access token expired, attempting refresh...");
-        // 4️⃣ Attempt to refresh access token
         const refreshRes = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/auth/refresh`, {
             method: "POST",
             credentials: "include"
         });
-        console.log("[apiFetch] Refresh result:", refreshRes);
+        console.log('refresh result', refreshRes);
         if (!refreshRes.ok) {
-            console.log("[apiFetch] Refresh failed, clearing token");
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAccessToken"])();
-            return res; // return original 401 response
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAccessToken"])(); // refresh failed → logout
+            // window.location.href="/"
+            return;
         }
-        const data = await refreshRes.json();
-        const newAccessToken = data.accessToken;
-        console.log("[apiFetch] New access token received:", newAccessToken);
-        // 5️⃣ Update in-memory token
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setAccessToken"])(newAccessToken);
-        // 6️⃣ Retry original request with new token
+        const { accessToken: newAccessToken } = await refreshRes.json();
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setAccessToken"])(newAccessToken); // update in-memory token
+        // Retry original request with new token
         res = await fetch(url, {
             ...options,
             headers: {
@@ -86,15 +75,14 @@ async function apiFetch(url, options = {}) {
             },
             credentials: "include"
         });
-        console.log("[apiFetch] Retry response status:", res.status);
         if (res.status === 401) {
-            console.log("[apiFetch] Retry failed, clearing token");
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAccessToken"])();
+            return;
         }
         return res;
     } catch (err) {
-        console.error("[apiFetch] Error during fetch:", err);
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAccessToken"])();
+        console.error(err);
     }
 }
 const useGetUser = ()=>{
@@ -177,12 +165,31 @@ const useGetUser = ()=>{
     }["useGetUser.useEffect"], [
         user
     ]);
+    const forceRefetchUser = async ()=>{
+        setLoading(true);
+        try {
+            // clear memory + localStorage
+            updateUser(null);
+            localStorage.removeItem("user-data");
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAccessToken"])();
+            // fetch fresh user data
+            const freshUser = await getUser();
+            return freshUser;
+        } catch (err) {
+            console.error("Failed to force update user", err);
+            setError(err);
+            return null;
+        } finally{
+            setLoading(false);
+        }
+    };
     return {
         user,
         loading,
         error,
         refetch: getUser,
-        updateUser
+        updateUser,
+        forceRefetchUser
     };
 };
 _s(useGetUser, "lA73rvNtcQ4clY/4H3BtK1Qlkqw=", false, function() {
@@ -201,11 +208,15 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 {
 __turbopack_context__.s({
     "grantStatus": (()=>grantStatus),
-    "loginLocal": (()=>loginLocal)
+    "loginLocal": (()=>loginLocal),
+    "useGetRecentUserSignups": (()=>useGetRecentUserSignups)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/accessTokenStore.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/api/auth.ts [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature();
+;
 ;
 ;
 const loginLocal = async (body)=>{
@@ -245,9 +256,12 @@ const grantStatus = async (data)=>{
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(data),
-            credentials: 'include'
+            body: JSON.stringify(data)
         });
+        console.log('res status', res);
+        if (res.status === 403) return {
+            error: "Incorrect Access Key"
+        };
         if (!res.ok) throw new Error("Invalid request");
         const resData = await res?.json();
         return resData;
@@ -255,6 +269,66 @@ const grantStatus = async (data)=>{
         console.error(err);
     }
 };
+const useGetRecentUserSignups = (user, limit = 15)=>{
+    _s();
+    const [data, setData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [cursor, setCursor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('null');
+    const [hasMore, setHasMore] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [totalCount, setTotalCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const getRecentUserSignupsInfinite = async ()=>{
+        if (!hasMore) return;
+        try {
+            setLoading(true);
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=${cursor}&limit=${limit}`);
+            if (!res.ok) throw new Error("Invalid request");
+            const resData = await res?.json();
+            setData((prev)=>[
+                    ...prev,
+                    ...resData.items
+                ]);
+            setCursor(resData.cursor);
+            setHasMore(!!resData.cursor);
+        } catch (err) {
+            console.error(err);
+        } finally{
+            setLoading(false);
+        }
+    };
+    const getRecentUserSignups = async ()=>{
+        if (!hasMore) return;
+        try {
+            setLoading(true);
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=null&limit=${limit}`);
+            if (!res.ok) throw new Error("Invalid request");
+            const resData = await res?.json();
+            setData(resData.items);
+            setTotalCount(resData.totalUsers);
+            setCursor(resData.cursor);
+            setHasMore(!!resData.cursor);
+        } catch (err) {
+            console.error(err);
+        } finally{
+            setLoading(false);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "useGetRecentUserSignups.useEffect": ()=>{
+            if (!user) return;
+            getRecentUserSignups();
+        }
+    }["useGetRecentUserSignups.useEffect"], [
+        user
+    ]);
+    return {
+        data,
+        totalCount,
+        loading,
+        refetch: getRecentUserSignups,
+        fetchMore: getRecentUserSignupsInfinite
+    };
+};
+_s(useGetRecentUserSignups, "DSqNVo7lQKmg/yvqBX/GBzGcSZA=");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }

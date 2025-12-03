@@ -41,7 +41,7 @@ const AdminDashboard = () => {
     <div className='flex-1 pt-30 px-10'>
         { user.isAdmin ? (
             <div className='gap-3 flex justify-center items-center flex-col'>
-                <h1 className='text-mainGray font-bold text-3xl py-10 text-center'>Welcome to the Dashboard</h1>
+                <h1 className='text-mainGray font-bold text-3xl py-10 text-center'>Admin Dashboard</h1>
                 { loading && (
                     <Spinner></Spinner>
                 ) }
