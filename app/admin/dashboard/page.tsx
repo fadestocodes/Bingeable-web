@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
     }
 
-    const handleClick = (id) => {
+    const handleClick = (id:number) => {
         router.push(`/admin/user/${id}`)
     }
 
