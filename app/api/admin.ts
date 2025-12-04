@@ -51,7 +51,7 @@ export const grantStatus = async (data: GrantStatusParams) => {
     }
 }
 
-export const useGetRecentUserSignups = (user: User,limit=15) => {
+export const useGetRecentUserSignups = (limit=15) => {
     const [data, setData] = useState<User[]>([])
     const [loading, setLoading] = useState(true)
     const [cursor, setCursor] = useState('null')
@@ -101,9 +101,8 @@ export const useGetRecentUserSignups = (user: User,limit=15) => {
 
 
     useEffect(() => {
-        if (!user) return  
         getRecentUserSignups()
-    }, [user])
+    }, [])
 
     return { data, totalCount, loading, refetch:getRecentUserSignups, fetchMore : getRecentUserSignupsInfinite }
 }

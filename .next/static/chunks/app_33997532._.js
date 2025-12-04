@@ -274,7 +274,7 @@ const grantStatus = async (data)=>{
         console.error(err);
     }
 };
-const useGetRecentUserSignups = (user, limit = 15)=>{
+const useGetRecentUserSignups = (limit = 15)=>{
     _s();
     const [data, setData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
@@ -319,12 +319,9 @@ const useGetRecentUserSignups = (user, limit = 15)=>{
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "useGetRecentUserSignups.useEffect": ()=>{
-            if (!user) return;
             getRecentUserSignups();
         }
-    }["useGetRecentUserSignups.useEffect"], [
-        user
-    ]);
+    }["useGetRecentUserSignups.useEffect"], []);
     return {
         data,
         totalCount,

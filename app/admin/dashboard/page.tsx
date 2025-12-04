@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     const [error, setError] = useState('')
     const router = useRouter()
 
-    const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups(user)
+    const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups()
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -99,6 +99,7 @@ const AdminDashboard = () => {
                                 <div className='justify-center items-center col-span-2'>
                                     <p className='text-mainGray'>@{user.username}</p>
                                 </div>
+                                
                                 <div className='flex items-center'>
                                     <p className='text-mainGray'>{ user?.session?.length > 0 ? formatDateWords(user.session[0].createdAt) : 'N/A'}</p>
                                 </div>

@@ -14,8 +14,17 @@ export type User = {
     displayBadge ?: string,
     unlockedBadges ?: Array<UnlockedBadges>,
     isAdmin ?: boolean,
-    createdAt : Date
+    createdAt : Date,
+    session ?: Array<Session>
 
+}
+
+
+export type Session = {
+    id : number,
+    createdAt : Date,
+    userId : number,
+    user : User
 }
 
 export type UnlockedBadges = {
