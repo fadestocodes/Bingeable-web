@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/drew/repos/Bingeable-web/app/admin/user/%5BuserId%5D/page.tsx"],"sourcesContent":["'use client'\n\nimport React, { use } from 'react'\n\nconst UserAdminPage = ({params}: {params: Promise<{ userId: string }>}) => {\n\n    const {userId} = use(params)\n    console.log('user id,,,', userId)\n  return (\n    <div className='bg-mainGray'>UserAdminPage</div>\n  )\n}\n\nexport default UserAdminPage"],"names":[],"mappings":";;;;AAEA;AAFA;;;AAIA,MAAM,gBAAgB,CAAC,EAAC,MAAM,EAAwC;IAElE,MAAM,EAAC,MAAM,EAAC,GAAG,CAAA,GAAA,6JAAA,CAAA,MAAG,AAAD,EAAE;IACrB,QAAQ,GAAG,CAAC,cAAc;IAC5B,qBACE,6LAAC;QAAI,WAAU;kBAAc;;;;;;AAEjC;KAPM;uCASS","debugId":null}}]
+}

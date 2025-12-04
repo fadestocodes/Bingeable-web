@@ -1,4 +1,4 @@
-import { domain } from "../serverEndpoint"
+import { domain } from "../lib/serverEndpoint"
 
 
 export const signUpEmailList = async (email: string) => {

@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { clearAccessToken, getAccessToken, setAccessToken } from "../accessTokenStore";
-import { useUserContext } from "../UserContext";
+import { clearAccessToken, getAccessToken, setAccessToken } from "../lib/accessTokenStore";
+import { useUserContext } from "../lib/UserContext";
 
 // apiFetch.ts
 export async function apiFetch(url: string, options: RequestInit = {}) {

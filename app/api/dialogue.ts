@@ -1,5 +1,5 @@
 import { Dialogue } from "@/app/types"
-import { domain } from "../serverEndpoint"
+import { domain } from "../lib/serverEndpoint"
 
 export const getLandingPageDialogues = async ( ): Promise<Dialogue[] | null> => {
     try {

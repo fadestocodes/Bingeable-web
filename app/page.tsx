@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { User, Dialogue } from "./types";
-import { getUsersForCarousel } from "./lib/api/user";
+import { getUsersForCarousel } from "./api/user";
 import { colors } from "@/constants/Colors";
 import UserCarousel from "@/components/UserCarousel";
 import DialogueCarousel from "@/components/DialogueCarousel";
-import { getLandingPageDialogues } from "./lib/api/dialogue";
+import { getLandingPageDialogues } from "./api/dialogue";
 import DownloadButton from "@/components/DownloadButton";
 // import { motion } from "motion/react"
 import * as motion from "motion/react-client"

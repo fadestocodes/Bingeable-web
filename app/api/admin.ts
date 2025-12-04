@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { setAccessToken } from "../accessTokenStore"
+import { setAccessToken } from "../lib/accessTokenStore"
 import { apiFetch } from "./auth"
 import { User } from "@/app/types"
 

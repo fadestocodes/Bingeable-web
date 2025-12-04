@@ -1,6 +1,6 @@
 'use client'
 
-import { signUpEmailList } from '@/app/lib/api/email'
+import { signUpEmailList } from '@/app/api/email'
 import { colors } from '@/constants/Colors';
 import React, {useState} from 'react'
 import { IoIosMail } from "react-icons/io";
