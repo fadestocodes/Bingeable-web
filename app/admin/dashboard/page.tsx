@@ -101,7 +101,12 @@ const AdminDashboard = () => {
                                 </div>
                                 
                                 <div className='flex items-center'>
-                                    <p className='text-mainGray'>{ user?.session?.length > 0 ? formatDateWords(user.session[0].createdAt) : 'N/A'}</p>
+                                    { user?.session  && user?.session?.length > 0 ? (
+                                        <p className='text-mainGray'>{ formatDateWords(user.session[0].createdAt)}</p>
+                                    ) : (
+                                        <p className='text-mainGray'>N/A</p>
+                                    )
+                                     }
                                 </div>
                                 <div className='flex items-center'>
                                     <p className='text-mainGray'>{formatDateWords(user.createdAt)}</p>

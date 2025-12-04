@@ -511,7 +511,7 @@ function UserAdminPage({ params }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-mainGray text-md font-bold",
-                                                children: user.followers.length
+                                                children: user?.followers && user.followers.length
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/user/[userId]/page.tsx",
                                                 lineNumber: 60,
@@ -519,7 +519,7 @@ function UserAdminPage({ params }) {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-mainGray text-md font-bold",
-                                                children: user.followers.length > 0 ? 'Follower' : 'Followers'
+                                                children: user?.followers && user.followers.length > 0 ? 'Follower' : 'Followers'
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/user/[userId]/page.tsx",
                                                 lineNumber: 61,
@@ -536,7 +536,7 @@ function UserAdminPage({ params }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-mainGray text-md font-bold",
-                                                children: user.following.length
+                                                children: user?.following && user.following.length
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/user/[userId]/page.tsx",
                                                 lineNumber: 64,
@@ -627,7 +627,8 @@ function UserAdminPage({ params }) {
                                 lineNumber: 77,
                                 columnNumber: 17
                             }, this),
-                            user?.mainUser?.length > 0 && user.mainUser.map((session)=>{
+                            user?.session && user?.session?.length > 0 && user.session.map((session)=>{
+                                console.log('seswions..', session);
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "col-span-4 grid grid-cols-4 px-4",
                                     children: [
@@ -636,7 +637,7 @@ function UserAdminPage({ params }) {
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$formatDate$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatDateTimeWords"])(session.createdAt)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 89,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -644,13 +645,13 @@ function UserAdminPage({ params }) {
                                             children: "N/A"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                            lineNumber: 88,
+                                            lineNumber: 90,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, session.id, true, {
                                     fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                    lineNumber: 86,
+                                    lineNumber: 88,
                                     columnNumber: 25
                                 }, this);
                             })
@@ -679,12 +680,12 @@ function UserAdminPage({ params }) {
                             children: "Recent Activities"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                            lineNumber: 98,
+                            lineNumber: 100,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                        lineNumber: 97,
+                        lineNumber: 99,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -698,7 +699,7 @@ function UserAdminPage({ params }) {
                                         children: "Description"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                        lineNumber: 103,
+                                        lineNumber: 105,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -706,16 +707,16 @@ function UserAdminPage({ params }) {
                                         children: "Date"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 106,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                lineNumber: 101,
+                                lineNumber: 103,
                                 columnNumber: 17
                             }, this),
-                            user?.mainUser?.length > 0 && user.mainUser.map((activity)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            user?.mainUser && user?.mainUser?.length > 0 && user.mainUser.map((activity)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-5 col-span-5 px-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -723,7 +724,7 @@ function UserAdminPage({ params }) {
                                             children: activity.description
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                            lineNumber: 111,
+                                            lineNumber: 113,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -731,25 +732,25 @@ function UserAdminPage({ params }) {
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$formatDate$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatDateWords"])(activity.createdAt)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 116,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, activity.id, true, {
                                     fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                                    lineNumber: 110,
+                                    lineNumber: 112,
                                     columnNumber: 29
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                        lineNumber: 100,
+                        lineNumber: 102,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/user/[userId]/page.tsx",
-                lineNumber: 96,
+                lineNumber: 98,
                 columnNumber: 9
             }, this)
         ]

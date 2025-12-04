@@ -15,7 +15,11 @@ export type User = {
     unlockedBadges ?: Array<UnlockedBadges>,
     isAdmin ?: boolean,
     createdAt : Date,
-    session ?: Array<Session>
+    session ?: Array<Session>,
+    locationFormatted ?: string,
+    followers ?: Array<User>
+    following ?: Array<User>
+    mainUser ?: Array<Activity>,
 
 }
 

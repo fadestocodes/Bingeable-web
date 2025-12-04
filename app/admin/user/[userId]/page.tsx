@@ -57,11 +57,11 @@ import React, { use } from 'react'
                         )}
                         <div className='flex flex-row gap-2 justify-center items-center'>
                             <div  className='flex flex-row gap-2 justify-center items-center'>
-                                <p className='text-mainGray text-md font-bold'>{ user.followers.length }</p>
-                                <p className='text-mainGray text-md font-bold'>{ user.followers.length > 0 ? 'Follower' :  'Followers'}</p>
+                                <p className='text-mainGray text-md font-bold'>{ user?.followers && user.followers.length }</p>
+                                <p className='text-mainGray text-md font-bold'>{ user?.followers &&  user.followers.length > 0 ? 'Follower' :  'Followers'}</p>
                             </div>
                             <div  className='flex flex-row gap-2 justify-center items-center'>
-                                <p className='text-mainGray text-md font-bold'>{ user.following.length }</p>
+                                <p className='text-mainGray text-md font-bold'>{ user?.following && user.following.length }</p>
                                 <p className='text-mainGray text-md font-bold'>{ 'Following'}</p>
                             </div>
                         </div>
@@ -79,9 +79,11 @@ import React, { use } from 'react'
                         <p className='text-mainGray col-span-3'>Session Start</p>
                         <p className='text-mainGray col-span-1'>Location</p>
                 </div>
-                { user?.mainUser?.length > 0 && (
-                    user.mainUser.map( session => {
-                        
+                { user?.session &&  user?.session?.length > 0 && 
+                
+                (
+                    user.session.map( session => {
+                            console.log('seswions..', session)
                         return (
                         <div key={session.id} className='col-span-4 grid grid-cols-4 px-4'>
                             <p className='text-mainGray col-span-3'>{formatDateTimeWords(session.createdAt)}</p>
@@ -104,7 +106,7 @@ import React, { use } from 'react'
                         <p className='text-mainGray col-span-1'>Date</p>
 
                     </div>
-                    { user?.mainUser?.length > 0 && (
+                    { user?.mainUser && user?.mainUser?.length > 0 && (
 
                         user.mainUser.map( activity => (
                             <div className='grid grid-cols-5 col-span-5 px-4'  key={activity.id}>
