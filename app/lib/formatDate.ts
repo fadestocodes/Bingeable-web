@@ -1,7 +1,7 @@
 import { format, isToday, differenceInMinutes, differenceInHours } from 'date-fns';
 
 
-export const formatDate = (date: Date): string => {
+export const formatDateNumbers = (date: Date): string => {
     const now = new Date();  // Get current date and time
     const targetDate = new Date(date);  // Convert input to a Date object
 
@@ -21,4 +21,15 @@ export const formatDate = (date: Date): string => {
 
     // If the date is not today, format it to M/d/yyyy
     return format(targetDate, "M/d/yyyy");
+};
+
+export const formatDateWords = (date: Date): string => {
+    const targetDate = new Date(date);
+    return format(targetDate, "MMMM d, yyyy"); // e.g., November 20, 2025
+};
+
+export const formatDateTimeWords = (date: Date): string => {
+    const targetDate = new Date(date);
+    return format(targetDate, "h:mm a MMM d, yyyy"); 
+    // Example -> 7:43 PM Nov 24, 2025
 };

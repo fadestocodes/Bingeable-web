@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { loginLocal } from '../lib/api/admin'
+import { loginLocal } from '../api/admin'
 // import { useGetUser } from '../lib/api/auth'
 import { useRouter } from 'next/navigation'
 

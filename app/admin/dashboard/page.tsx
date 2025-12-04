@@ -1,21 +1,24 @@
 'use client'
 
-import { useGetUser } from '@/app/lib/api/auth'
 import React, { useState } from 'react'
 import { Spinner } from "@/components/ui/spinner";
-import { grantStatus, useGetRecentUserSignups } from '@/app/lib/api/admin';
+import { grantStatus } from '@/app/api/admin';
 import { colors } from '@/constants/Colors';
 import Image from 'next/image';
 import { avatarFallback } from '@/app/lib/fallbackImages';
-import { formatDate } from '@/app/lib/formatDate';
+import {  formatDateWords } from '@/app/lib/formatDate';
+import { useRouter } from 'next/navigation'
+import { useGetRecentUserSignups, useGetUser } from '@/app/lib/hooks';
+
 
 
 const AdminDashboard = () => {
     const {user, forceRefetchUser} = useGetUser()
     const [ input, setInput ] = useState('')
     const [error, setError] = useState('')
+    const router = useRouter()
 
-    const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups(user)
+    const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups()
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,6 +37,10 @@ const AdminDashboard = () => {
         }
 
 
+    }
+
+    const handleClick = (id:number) => {
+        router.push(`/admin/user/${id}`)
     }
 
 
@@ -58,7 +65,7 @@ const AdminDashboard = () => {
                 <div className='w-full bg-primaryLight rounded-2xl gap-3 py-10 grid grid-cols-7 justify-center items-center px-10 relative'>
                         <div
                             className='grid grid-cols-7 col-span-7 py-3 px-6 rounded-xl 
-                                   bg-primary opacity-30 justify-center items-center'
+                                   bg-primary opacity-50 justify-center items-center'
                         >
                             <p className='text-mainGray  col-span-3 '>User</p>
                             <p className='text-mainGray   col-span-2'>Username</p>
@@ -69,6 +76,7 @@ const AdminDashboard = () => {
                         { recentUsers.map( user => (
                             // <React.Fragment key={user.id} >
                                 <div
+                                    onClick={()=>handleClick(user.id)}
                                     key={user.id}
                                     className='grid grid-cols-7 col-span-7 py-3 px-6 rounded-2xl 
                                             hover:bg-primary/20 transition justify-center items-center hover:cursor-pointer '
@@ -91,11 +99,17 @@ const AdminDashboard = () => {
                                 <div className='justify-center items-center col-span-2'>
                                     <p className='text-mainGray'>@{user.username}</p>
                                 </div>
+                                
                                 <div className='flex items-center'>
-                                    <p className='text-mainGray'>{formatDate(user.createdAt)}</p>
+                                    { user?.session  && user?.session?.length > 0 ? (
+                                        <p className='text-mainGray'>{ formatDateWords(user.session[0].createdAt)}</p>
+                                    ) : (
+                                        <p className='text-mainGray'>N/A</p>
+                                    )
+                                     }
                                 </div>
                                 <div className='flex items-center'>
-                                    <p className='text-mainGray'>{formatDate(user.createdAt)}</p>
+                                    <p className='text-mainGray'>{formatDateWords(user.createdAt)}</p>
                                 </div>
                             {/* </React.Fragment> */}
                             </div>

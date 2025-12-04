@@ -7,7 +7,7 @@ import { ThumbsUp, ThumbsDown } from 'lucide-react'
 import { posterURLlow } from '@/constants/tmdbPosterUrl'
 import { MdOutlineMessage } from 'react-icons/md'
 import { FaRetweet } from "react-icons/fa6";
-import { formatDate } from '@/app/lib/formatDate'
+import {  formatDateNumbers } from '@/app/lib/formatDate'
 import { avatarFallback, posterFallback } from '@/app/lib/fallbackImages'
 import { Dialogue } from '@/app/types'
 
@@ -42,7 +42,7 @@ const DialogueCarousel = ({dialogues}: DialogueCarouselProps) => {
                             </div>
                             <p className='text-sm' style={{color:colors.mainGray}}>@{dialogue.user.username}</p>
                         </div>
-                        <p className='text-sm' style={{color:colors.mainGray}}>{formatDate(dialogue.createdAt)}</p>
+                        <p className='text-sm' style={{color:colors.mainGray}}>{formatDateNumbers(dialogue.createdAt)}</p>
                     
                     </div>
                     <div className='w-full justify-center items-center pt-8 gap-3'>
