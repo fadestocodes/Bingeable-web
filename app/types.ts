@@ -13,7 +13,8 @@ export type User = {
     filmDept ?: string,
     displayBadge ?: string,
     unlockedBadges ?: Array<UnlockedBadges>,
-    isAdmin ?: boolean
+    isAdmin ?: boolean,
+    createdAt : Date
 
 }
 
