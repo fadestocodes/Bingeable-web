@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"
 import { setAccessToken } from "../lib/accessTokenStore"
 import { apiFetch } from "./auth"
-import { User } from "@/app/types"
 
 type LoginParams = {
     login : string,
@@ -49,60 +47,4 @@ export const grantStatus = async (data: GrantStatusParams) => {
     } catch(err){
         console.error(err)
     }
-}
-
-export const useGetRecentUserSignups = (limit=15) => {
-    const [data, setData] = useState<User[]>([])
-    const [loading, setLoading] = useState(true)
-    const [cursor, setCursor] = useState('null')
-    const [hasMore, setHasMore] = useState(true)
-    const [totalCount, setTotalCount] = useState('')
-
-    const getRecentUserSignupsInfinite = async () => {
-        
-        if (!hasMore) return
-        try {
-            setLoading(true)
-            const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/signups?cursor=${cursor}&limit=${limit}`)
-            if (!res?.ok) throw new Error("Invalid request")
-            const resData = await res?.json()
-            setData(prev => ([...prev, ...resData.items]))
-            setCursor(resData.cursor)
-            setHasMore(!!resData.cursor)
-
-        } catch (err){
-            console.error(err)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    const getRecentUserSignups = async () => {
-        
-        if (!hasMore) return
-        try {
-            setLoading(true)
-            const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/signups?cursor=null&limit=${limit}`)
-            if (!res?.ok) throw new Error("Invalid request")
-            const resData = await res?.json()
-            setData(resData.items)
-            setTotalCount(resData.totalUsers)
-            setCursor(resData.cursor)
-            setHasMore(!!resData.cursor)
-
-        } catch (err){
-            console.error(err)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-
-
-
-    useEffect(() => {
-        getRecentUserSignups()
-    }, [])
-
-    return { data, totalCount, loading, refetch:getRecentUserSignups, fetchMore : getRecentUserSignupsInfinite }
 }

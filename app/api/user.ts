@@ -18,31 +18,3 @@ export const getUsersForCarousel = async (): Promise<User[] | null>  => {
         return null
     }
 }
-
-export const useGetSingleUser = (id : string) => {
-    const [data, setData] = useState<User | null>(null)
-    const [loading, setLoading] = useState(true)
-
-    
-    useEffect(() => {
-        const getSingleUser = async () => {
-            try {
-                setLoading(true)
-
-                const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/user/${id}`)
-                if (!res?.ok) throw new Error("Invalid request")
-                const resData = await res.json()
-                setData(resData)
-            } catch (err){
-                console.error(err)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        if (!id)return
-        getSingleUser()
-    }, [id])
-
-    return {data, loading}
-}

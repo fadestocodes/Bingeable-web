@@ -1,14 +1,14 @@
 'use client'
 
-import { useGetUser } from '@/app/api/auth'
 import React, { useState } from 'react'
 import { Spinner } from "@/components/ui/spinner";
-import { grantStatus, useGetRecentUserSignups } from '@/app/api/admin';
+import { grantStatus } from '@/app/api/admin';
 import { colors } from '@/constants/Colors';
 import Image from 'next/image';
 import { avatarFallback } from '@/app/lib/fallbackImages';
 import {  formatDateWords } from '@/app/lib/formatDate';
 import { useRouter } from 'next/navigation'
+import { useGetRecentUserSignups, useGetUser } from '@/app/lib/hooks';
 
 
 

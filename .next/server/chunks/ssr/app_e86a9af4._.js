@@ -25,15 +25,9 @@ const clearAccessToken = ()=>{
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "apiFetch": (()=>apiFetch),
-    "useGetUser": (()=>useGetUser)
+    "apiFetch": (()=>apiFetch)
 });
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/accessTokenStore.ts [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$UserContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/UserContext.js [app-ssr] (ecmascript)");
-'use client';
-;
-;
 ;
 async function apiFetch(url, options = {}) {
     // Access token stored in memory (React state or module-level variable)
@@ -80,116 +74,6 @@ async function apiFetch(url, options = {}) {
         console.error(err);
     }
 }
-const useGetUser = ()=>{
-    const { user, updateUser } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$UserContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserContext"])();
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(!user);
-    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const getUser = async ()=>{
-        // 1️⃣ Return from global state if exists
-        if (user) return user;
-        let token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAccessToken"])();
-        // 2️⃣ Try to refresh access token if missing
-        if (!token) {
-            console.log('no token');
-            try {
-                const refreshRes = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/auth/refresh`, {
-                    method: "POST",
-                    credentials: "include"
-                });
-                if (!refreshRes.ok) {
-                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearAccessToken"])();
-                    return null;
-                }
-                const data = await refreshRes.json();
-                token = data.accessToken;
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["setAccessToken"])(token);
-            } catch (err) {
-                console.error("Refresh token failed", err);
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearAccessToken"])();
-                return null;
-            }
-        }
-        // 3️⃣ Check localStorage cache
-        try {
-            const storedJSON = localStorage.getItem("user-data");
-            if (storedJSON) {
-                console.log('stored json');
-                const storedUser = JSON.parse(storedJSON);
-                updateUser(storedUser);
-                return storedUser;
-            }
-        } catch (err) {
-            console.error("Failed to read/parse user from localStorage", err);
-            localStorage.removeItem("user-data"); // clear corrupted data
-        }
-        // 4️⃣ Fetch user from API
-        try {
-            console.log('fetching...');
-            const res = await apiFetch(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/user/simple`);
-            if (!res || !res.ok) {
-                return null;
-            }
-            const userData = await res.json();
-            localStorage.setItem("user-data", JSON.stringify(userData));
-            updateUser(userData);
-            return userData;
-        } catch (err) {
-            console.error("Failed to fetch user", err);
-            return null;
-        }
-    };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const fetchUser = async ()=>{
-            if (!user) {
-                setLoading(true);
-                try {
-                    await getUser();
-                } catch (err) {
-                    if (err instanceof Error) {
-                        setError(err);
-                    } else {
-                        setError(new Error(String(err)));
-                    }
-                } finally{
-                    setLoading(false);
-                }
-            }
-        };
-        fetchUser();
-    }, [
-        user
-    ]);
-    const forceRefetchUser = async ()=>{
-        setLoading(true);
-        try {
-            // clear memory + localStorage
-            updateUser(null);
-            localStorage.removeItem("user-data");
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearAccessToken"])();
-            // fetch fresh user data
-            const freshUser = await getUser();
-            return freshUser;
-        } catch (err) {
-            console.error("Failed to force update user", err);
-            if (err instanceof Error) {
-                setError(err);
-            } else {
-                setError(new Error(String(err)));
-            }
-            return null;
-        } finally{
-            setLoading(false);
-        }
-    };
-    return {
-        user,
-        loading,
-        error,
-        refetch: getUser,
-        updateUser,
-        forceRefetchUser
-    };
-};
 }}),
 "[project]/app/api/admin.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -198,13 +82,10 @@ var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
     "grantStatus": (()=>grantStatus),
-    "loginLocal": (()=>loginLocal),
-    "useGetRecentUserSignups": (()=>useGetRecentUserSignups)
+    "loginLocal": (()=>loginLocal)
 });
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/accessTokenStore.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$api$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/api/auth.ts [app-ssr] (ecmascript)");
-;
 ;
 ;
 const loginLocal = async (body)=>{
@@ -253,59 +134,6 @@ const grantStatus = async (data)=>{
     } catch (err) {
         console.error(err);
     }
-};
-const useGetRecentUserSignups = (limit = 15)=>{
-    const [data, setData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [cursor, setCursor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('null');
-    const [hasMore, setHasMore] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [totalCount, setTotalCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
-    const getRecentUserSignupsInfinite = async ()=>{
-        if (!hasMore) return;
-        try {
-            setLoading(true);
-            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$api$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=${cursor}&limit=${limit}`);
-            if (!res?.ok) throw new Error("Invalid request");
-            const resData = await res?.json();
-            setData((prev)=>[
-                    ...prev,
-                    ...resData.items
-                ]);
-            setCursor(resData.cursor);
-            setHasMore(!!resData.cursor);
-        } catch (err) {
-            console.error(err);
-        } finally{
-            setLoading(false);
-        }
-    };
-    const getRecentUserSignups = async ()=>{
-        if (!hasMore) return;
-        try {
-            setLoading(true);
-            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$api$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=null&limit=${limit}`);
-            if (!res?.ok) throw new Error("Invalid request");
-            const resData = await res?.json();
-            setData(resData.items);
-            setTotalCount(resData.totalUsers);
-            setCursor(resData.cursor);
-            setHasMore(!!resData.cursor);
-        } catch (err) {
-            console.error(err);
-        } finally{
-            setLoading(false);
-        }
-    };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        getRecentUserSignups();
-    }, []);
-    return {
-        data,
-        totalCount,
-        loading,
-        refetch: getRecentUserSignups,
-        fetchMore: getRecentUserSignupsInfinite
-    };
 };
 }}),
 "[project]/app/admin/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {

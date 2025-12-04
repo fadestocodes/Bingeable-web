@@ -1,8 +1,8 @@
 'use client'
 
-import { useGetSingleUser } from '@/app/api/user'
 import { avatarFallback } from '@/app/lib/fallbackImages'
 import { formatDateTimeWords, formatDateWords } from '@/app/lib/formatDate'
+import { useGetSingleUser } from '@/app/lib/hooks'
 import { Spinner } from '@/components/ui/spinner'
 import { colors } from '@/constants/Colors'
 import { Link, MapPin } from 'lucide-react'
