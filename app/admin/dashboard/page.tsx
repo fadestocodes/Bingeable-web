@@ -5,6 +5,9 @@ import React, { useState } from 'react'
 import { Spinner } from "@/components/ui/spinner";
 import { grantStatus, useGetRecentUserSignups } from '@/app/lib/api/admin';
 import { colors } from '@/constants/Colors';
+import Image from 'next/image';
+import { avatarFallback } from '@/app/lib/fallbackImages';
+import { formatDate } from '@/app/lib/formatDate';
 
 
 const AdminDashboard = () => {
@@ -38,7 +41,7 @@ const AdminDashboard = () => {
     if (!user) return <Spinner color={colors.mainGray} className="w-12 h-12 pt-30 text-mainGray" />
 
   return (
-    <div className='flex-1 pt-30 px-10'>
+    <div className='flex-1 pt-30 px-40'>
         { user.isAdmin ? (
             <div className='gap-3 flex justify-center items-center flex-col'>
                 <h1 className='text-mainGray font-bold text-3xl py-10 text-center'>Admin Dashboard</h1>
@@ -52,12 +55,52 @@ const AdminDashboard = () => {
                     </div>
 
                 </div>
-                <div className='w-full bg-primaryLight rounded-2xl gap-3 py-10'>
-                    { recentUsers.map( user => (
-                        <div className='px-8 py-2' key={user.id}>
-                            <p className='text-mainGray '>{user.firstName}</p>
+                <div className='w-full bg-primaryLight rounded-2xl gap-3 py-10 grid grid-cols-7 justify-center items-center px-10 relative'>
+                        <div
+                            className='grid grid-cols-7 col-span-7 py-3 px-6 rounded-xl 
+                                   bg-primary opacity-30 justify-center items-center'
+                        >
+                            <p className='text-mainGray  col-span-3 '>User</p>
+                            <p className='text-mainGray   col-span-2'>Username</p>
+                            <p className='text-mainGray  '>Last signed in</p>
+                            <p className='text-mainGray   '>Created</p>
                         </div>
-                    ) ) }
+
+                        { recentUsers.map( user => (
+                            // <React.Fragment key={user.id} >
+                                <div
+                                    key={user.id}
+                                    className='grid grid-cols-7 col-span-7 py-3 px-6 rounded-2xl 
+                                            hover:bg-primary/20 transition justify-center items-center hover:cursor-pointer '
+                                >
+                                <div className=' py-2 flex flex-row justify-start items-start gap-3 col-span-3 ' >
+                                    <Image
+                                        src={user?.profilePic || avatarFallback}
+                                        width={45}
+                                        height={45}
+                                        unoptimized
+                                        style={{borderRadius:50}}
+                                        alt="user profile picture"
+                                    />
+                                    <div className='justify-center items-center '>
+                                        <p className='text-mainGray '>{user.firstName}{user?.lastName && ` ${user.lastName}`}</p>
+                                        <p className='text-mainGray '>{user.email}</p>
+                                    </div>
+                                </div>
+
+                                <div className='justify-center items-center col-span-2'>
+                                    <p className='text-mainGray'>@{user.username}</p>
+                                </div>
+                                <div className='flex items-center'>
+                                    <p className='text-mainGray'>{formatDate(user.createdAt)}</p>
+                                </div>
+                                <div className='flex items-center'>
+                                    <p className='text-mainGray'>{formatDate(user.createdAt)}</p>
+                                </div>
+                            {/* </React.Fragment> */}
+                            </div>
+
+                        ) ) }
                 </div>
             </div>
         ) : (

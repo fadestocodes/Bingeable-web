@@ -145,7 +145,11 @@ const useGetUser = ()=>{
                 try {
                     await getUser();
                 } catch (err) {
-                    setError(err);
+                    if (err instanceof Error) {
+                        setError(err);
+                    } else {
+                        setError(new Error(String(err)));
+                    }
                 } finally{
                     setLoading(false);
                 }
@@ -167,7 +171,11 @@ const useGetUser = ()=>{
             return freshUser;
         } catch (err) {
             console.error("Failed to force update user", err);
-            setError(err);
+            if (err instanceof Error) {
+                setError(err);
+            } else {
+                setError(new Error(String(err)));
+            }
             return null;
         } finally{
             setLoading(false);
@@ -213,11 +221,9 @@ const loginLocal = async (body)=>{
             error: "Invalid credentials"
         };
         const data = await res.json();
-        console.log('data', data);
         const { accessToken } = data;
         // store access token in memory
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$accessTokenStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["setAccessToken"])(accessToken);
-        console.log('succesfuly logged in');
         return {
             message: "Successfully logged in",
             success: true
@@ -238,11 +244,10 @@ const grantStatus = async (data)=>{
             },
             body: JSON.stringify(data)
         });
-        console.log('res status', res);
-        if (res.status === 403) return {
+        if (res?.status === 403) return {
             error: "Incorrect Access Key"
         };
-        if (!res.ok) throw new Error("Invalid request");
+        if (!res?.ok) throw new Error("Invalid request");
         const resData = await res?.json();
         return resData;
     } catch (err) {
@@ -260,7 +265,7 @@ const useGetRecentUserSignups = (user, limit = 15)=>{
         try {
             setLoading(true);
             const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=${cursor}&limit=${limit}`);
-            if (!res.ok) throw new Error("Invalid request");
+            if (!res?.ok) throw new Error("Invalid request");
             const resData = await res?.json();
             setData((prev)=>[
                     ...prev,
@@ -279,7 +284,7 @@ const useGetRecentUserSignups = (user, limit = 15)=>{
         try {
             setLoading(true);
             const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])(`${("TURBOPACK compile-time value", "http://localhost:3000/api")}/admin/signups?cursor=null&limit=${limit}`);
-            if (!res.ok) throw new Error("Invalid request");
+            if (!res?.ok) throw new Error("Invalid request");
             const resData = await res?.json();
             setData(resData.items);
             setTotalCount(resData.totalUsers);
@@ -317,6 +322,7 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$api$2f$admin$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/api/admin.ts [app-ssr] (ecmascript)");
+// import { useGetUser } from '../lib/api/auth'
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 'use client';
 ;
