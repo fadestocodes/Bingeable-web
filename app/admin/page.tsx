@@ -17,14 +17,14 @@ const AdminPage = () => {
 
 
 
-    const handleChange = (e) => {
+    const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
         setInput( prev => ({
             ...prev,
             [e.target.name] : e.target.value
         }))
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const data = {
             login : input.emailOrUsername,
