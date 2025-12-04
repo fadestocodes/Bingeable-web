@@ -1,9 +1,6 @@
-'use client'
 
-import { useEffect, useState } from "react";
 import { domain } from "../lib/serverEndpoint";
 import { User } from "@/app/types";
-import { apiFetch } from "./auth";
 
 
 
