@@ -176,7 +176,9 @@ const colors = {
     darkGray: '#232533',
     lightGray: '#CDCDE0',
     green: '#84e38d',
-    red: '#fa8a84'
+    red: '#fa8a84',
+    newDarkGray: '#454242',
+    newLightGray: '#9CA3AF'
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
