@@ -12,10 +12,10 @@ const AdminDashboard = () => {
     const [ input, setInput ] = useState('')
     const [error, setError] = useState('')
 
-    const { data:recentUsers, loading, fetchMore, totalCount } = useGetRecentUserSignups(user)
+    const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups(user)
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const data = {
             adminSecret : input

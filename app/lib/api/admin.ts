@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react"
 import { setAccessToken } from "../accessTokenStore"
 import { apiFetch } from "./auth"
+import { User } from "@/app/types"
 
-export const loginLocal = async (body) => {
+type LoginParams = {
+    login : string,
+    password : string
+}
+
+type GrantStatusParams = {
+    adminSecret : string
+}
+
+export const loginLocal = async (body: LoginParams) => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
             method : 'POST',
@@ -12,12 +22,10 @@ export const loginLocal = async (body) => {
         })
         if (!res.ok) return { error : "Invalid credentials" }
         const data = await res.json()
-        console.log('data', data)
         const { accessToken } = data;
 
         // store access token in memory
         setAccessToken(accessToken);
-        console.log('succesfuly logged in')
         return {message : "Successfully logged in", success : true}
     
 
@@ -27,16 +35,15 @@ export const loginLocal = async (body) => {
     }
 }
 
-export const grantStatus = async (data) => {
+export const grantStatus = async (data: GrantStatusParams) => {
     try {
         const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/grant-status`, {
             method : 'PATCH',
             headers : { 'Content-type' : 'application/json'},
             body : JSON.stringify(data),
         })
-        console.log('res status', res)
-        if (res.status === 403) return { error : "Incorrect Access Key" }
-        if (!res.ok) throw new Error("Invalid request")
+        if (res?.status === 403) return { error : "Incorrect Access Key" }
+        if (!res?.ok) throw new Error("Invalid request")
         const resData = await res?.json()
         return resData
     } catch(err){
@@ -44,8 +51,8 @@ export const grantStatus = async (data) => {
     }
 }
 
-export const useGetRecentUserSignups = (user,limit=15) => {
-    const [data, setData] = useState([])
+export const useGetRecentUserSignups = (user: User,limit=15) => {
+    const [data, setData] = useState<User[]>([])
     const [loading, setLoading] = useState(true)
     const [cursor, setCursor] = useState('null')
     const [hasMore, setHasMore] = useState(true)
@@ -57,7 +64,7 @@ export const useGetRecentUserSignups = (user,limit=15) => {
         try {
             setLoading(true)
             const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/signups?cursor=${cursor}&limit=${limit}`)
-            if (!res.ok) throw new Error("Invalid request")
+            if (!res?.ok) throw new Error("Invalid request")
             const resData = await res?.json()
             setData(prev => ([...prev, ...resData.items]))
             setCursor(resData.cursor)
@@ -76,7 +83,7 @@ export const useGetRecentUserSignups = (user,limit=15) => {
         try {
             setLoading(true)
             const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/signups?cursor=null&limit=${limit}`)
-            if (!res.ok) throw new Error("Invalid request")
+            if (!res?.ok) throw new Error("Invalid request")
             const resData = await res?.json()
             setData(resData.items)
             setTotalCount(resData.totalUsers)

@@ -65,7 +65,7 @@ export async function apiFetch(url: string, options: RequestInit = {}) {
 
 export const useGetUser = () => {
   const { user, updateUser } = useUserContext();
-  const [loading, setLoading] = useState(!user);
+  const [loading, setLoading] = useState<boolean>(!user);
   const [error, setError] = useState<Error | null>(null);
 
   const getUser = async () => {
@@ -127,7 +127,7 @@ export const useGetUser = () => {
       updateUser(userData);
 
       return userData;
-    } catch (err: any) {
+    } catch (err) {
       console.error("Failed to fetch user", err);
       return null;
     }
@@ -139,8 +139,12 @@ export const useGetUser = () => {
         setLoading(true);
         try {
           await getUser();
-        } catch (err: any) {
-          setError(err);
+        } catch (err) {
+          if (err instanceof Error) {
+            setError(err);
+          } else {
+            setError(new Error(String(err)));
+          }
         } finally {
           setLoading(false);
         }
@@ -160,9 +164,13 @@ export const useGetUser = () => {
       // fetch fresh user data
       const freshUser = await getUser();
       return freshUser;
-    } catch (err: any) {
+    } catch (err) {
       console.error("Failed to force update user", err);
-      setError(err);
+      if (err instanceof Error) {
+        setError(err);
+      } else {
+        setError(new Error(String(err)));
+      }
       return null;
     } finally {
       setLoading(false);
