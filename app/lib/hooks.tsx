@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import { apiFetch } from "../api/auth"
-import { User } from "../types"
+import { Activity, User } from "../types"
 import { clearAccessToken, getAccessToken, setAccessToken } from "./accessTokenStore"
 import { useUserContext } from "./UserContext"
 
@@ -210,3 +210,33 @@ export const useGetUser = () => {
   
     return { user, loading, error, refetch: getUser, updateUser, forceRefetchUser };
   };
+
+
+
+  export const useGetRecentActivitiesAdmin = () => {
+
+    const [ data, setData ] = useState<Activity[] | []>([])
+    const [ loading, setLoading ] = useState<boolean>(true)
+
+    
+    useEffect(() => {
+        const getRecentActivitiesAdmin = async () => {
+            try {
+                setLoading(true)
+                const res = await apiFetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/recent-activities`)
+                if (!res?.ok) throw new Error("Invalid request")
+                const resData = await res.json()
+                setData(resData)
+            } catch (err){
+                console.error(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        getRecentActivitiesAdmin()
+
+    }, [])
+
+    return {data, loading}
+  }
