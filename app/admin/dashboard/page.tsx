@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { avatarFallback } from '@/app/lib/fallbackImages';
 import {  formatDateWords } from '@/app/lib/formatDate';
 import { useRouter } from 'next/navigation'
-import { useGetRecentUserSignups, useGetUser } from '@/app/lib/hooks';
+import { useGetRecentActivitiesAdmin, useGetRecentUserSignups, useGetUser } from '@/app/lib/hooks';
 
 
 
@@ -19,6 +19,7 @@ const AdminDashboard = () => {
     const router = useRouter()
 
     const { data:recentUsers, loading, totalCount } = useGetRecentUserSignups()
+    const {data: recentActivities, loading: loadingActivities} = useGetRecentActivitiesAdmin()
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,14 +46,14 @@ const AdminDashboard = () => {
 
 
 
-    if (!user) return <Spinner color={colors.mainGray} className="w-12 h-12 pt-30 text-mainGray" />
+    if (!user ||!recentActivities || !recentUsers) return <Spinner color={colors.mainGray} className="w-12 h-12 pt-30 text-mainGray" />
 
   return (
     <div className='flex-1 pt-30 px-40'>
         { user.isAdmin ? (
             <div className='gap-3 flex justify-center items-center flex-col'>
                 <h1 className='text-mainGray font-bold text-3xl py-10 text-center'>Admin Dashboard</h1>
-                { loading && (
+                { loading || loadingActivities && (
                     <Spinner></Spinner>
                 ) }
                 <div className='flex flex-row gap-3 py-2 w-full justify-start'>
@@ -62,6 +63,7 @@ const AdminDashboard = () => {
                     </div>
 
                 </div>
+                <p className='text-mainGray self-start pt-8 pl-8 text-lg font-medium' >Recent Signups</p>
                 <div className='w-full bg-primaryLight rounded-2xl gap-3 py-10 grid grid-cols-7 justify-center items-center px-10 relative'>
                         <div
                             className='grid grid-cols-7 col-span-7 py-3 px-6 rounded-xl 
@@ -74,7 +76,6 @@ const AdminDashboard = () => {
                         </div>
 
                         { recentUsers.map( user => (
-                            // <React.Fragment key={user.id} >
                                 <div
                                     onClick={()=>handleClick(user.id)}
                                     key={user.id}
@@ -111,7 +112,52 @@ const AdminDashboard = () => {
                                 <div className='flex items-center'>
                                     <p className='text-mainGray'>{formatDateWords(user.createdAt)}</p>
                                 </div>
-                            {/* </React.Fragment> */}
+                            </div>
+
+                        ) ) }
+                </div>
+
+                <p className='text-mainGray self-start pt-8 pl-8 text-lg font-medium' >Recent Activities</p>
+
+                <div className='w-full bg-primaryLight rounded-2xl gap-3 py-10 grid grid-cols-8 justify-center items-center px-10 relative'>
+                        <div
+                            className='grid grid-cols-8 col-span-8 py-3 px-6 rounded-xl 
+                                   bg-primary opacity-50 justify-center items-center'
+                        >
+                            <p className='text-mainGray  col-span-3 '>User</p>
+                            <p className='text-mainGray   col-span-4'>Description</p>
+                            <p className='text-mainGray   col-span-1'>Date</p>
+                        </div>
+
+                        { recentActivities.map( activity => (
+                                <div
+                                    onClick={()=>handleClick(activity.user.id)}
+                                    key={activity.id}
+                                    className='grid grid-cols-8 col-span-8 py-3 px-6 rounded-2xl 
+                                            hover:bg-primary/20 transition justify-center items-center hover:cursor-pointer '
+                                >
+                                <div className=' py-2 flex flex-row justify-start items-start gap-3 col-span-3 ' >
+                                    <Image
+                                        src={activity.user?.profilePic || avatarFallback}
+                                        width={45}
+                                        height={45}
+                                        unoptimized
+                                        style={{borderRadius:50}}
+                                        alt="activity.user profile picture"
+                                    />
+                                    <div className='justify-center items-center '>
+                                        <p className='text-mainGray '>{activity.user.firstName}{activity.user?.lastName && ` ${activity.user.lastName}`}</p>
+                                        <p className='text-mainGray '>@{activity.user.username}</p>
+                                    </div>
+                                </div>
+
+                                <div className='justify-center items-center col-span-4'>
+                                    <p className='text-mainGray'>{activity.description}</p>
+                                </div>
+                                
+                                <div className='flex items-center'>
+                                    <p className='text-mainGray'>{formatDateWords(activity.createdAt)}</p>
+                                </div>
                             </div>
 
                         ) ) }
